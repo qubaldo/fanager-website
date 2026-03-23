@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verify Email — Fanager</title>
+    <style>
+        body { font-family: -apple-system, BlinkMacSystemFont, sans-serif; max-width: 480px; margin: 60px auto; padding: 0 20px; text-align: center; background: #0A1628; color: white; }
+        h1 { font-size: 24px; }
+        .btn { display: inline-block; padding: 14px 28px; border-radius: 8px; font-size: 16px; font-weight: 600; text-decoration: none; cursor: pointer; border: none; }
+        .btn-primary { background: #3B82F6; color: white; }
+        .btn-primary:hover { background: #2563EB; }
+        .btn-success { background: #22C55E; color: white; }
+        .btn-disabled { background: #6B7280; color: white; cursor: not-allowed; }
+        .message { margin: 20px 0; font-size: 16px; }
+        .error { color: #EF4444; }
+        .success { color: #22C55E; }
+        #status { display: none; }
+    </style>
+</head>
+<body>
+    <h1>Fanager</h1>
+    <div id="verify-section">
+        <p class="message">Click the button below to verify your email address.</p>
+        <button id="verify-btn" class="btn btn-primary" onclick="verifyEmail()">Verify my email</button>
+    </div>
+    <div id="status">
+        <p id="status-message" class="message"></p>
+        <a id="open-app" href="leaguehq://login-callback" class="btn btn-success" style="display:none;">Open Fanager</a>
+    </div>
+    <script>
+        // TODO: Replace with actual API URL at deploy time
+        const API_URL = 'https://league-hq-api-802921464084.us-west1.run.app/league-manager';
+
+        async function verifyEmail() {
+            const btn = document.getElementById('verify-btn');
+            btn.textContent = 'Verifying...';
+            btn.classList.add('btn-disabled');
+            btn.disabled = true;
+
+            const params = new URLSearchParams(window.location.search);
+            const token = params.get('token');
+
+            if (!token) {
+                showError('No verification token found. Please check your email link.');
+                return;
+            }
+
+            try {
+                const resp = await fetch(API_URL + '/auth/verify-email', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ token: token })
+                });
+                const data = await resp.json();
+                if (resp.ok) {
+                    showSuccess('Email verified successfully!');
+                } else {
+                    showError(data.message || 'Verification failed. The link may have expired.');
+                }
+            } catch (e) {
+                showError('Something went wrong. Please try again.');
+            }
+        }
+
+        function showSuccess(msg) {
+            document.getElementById('verify-section').style.display = 'none';
+            document.getElementById('status').style.display = 'block';
+            document.getElementById('status-message').textContent = msg;
+            document.getElementById('status-message').classList.add('success');
+            document.getElementById('open-app').style.display = 'inline-block';
+        }
+
+        function showError(msg) {
+            document.getElementById('verify-section').style.display = 'none';
+            document.getElementById('status').style.display = 'block';
+            document.getElementById('status-message').textContent = msg;
+            document.getElementById('status-message').classList.add('error');
+        }
+    </script>
+</body>
+</html>
