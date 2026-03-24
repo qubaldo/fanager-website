@@ -3,37 +3,363 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fanager — Recreational Sports League Management</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Fanager — Manage Your Recreational Soccer League</title>
+    <meta name="description" content="The all-in-one app for recreational soccer leagues. Create leagues, manage teams, collect payments, and track standings. Free on iOS and Android.">
+    <meta property="og:title" content="Fanager — Manage Your Recreational Soccer League">
+    <meta property="og:description" content="The all-in-one app for recreational soccer leagues. Create leagues, manage teams, collect payments, and track standings. Free on iOS and Android.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://fanager.app">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Fanager — Manage Your Recreational Soccer League">
+    <meta name="twitter:description" content="The all-in-one app for recreational soccer leagues. Create leagues, manage teams, collect payments, and track standings.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              navy: '#0A1628',
+              'card-dark': '#111827',
+              'border-dark': '#1F2937',
+              'footer-bg': '#060d1a',
+              cyan: '#06B6D4',
+            },
+            fontFamily: {
+              sans: ['Inter', 'system-ui', '-apple-system', 'sans-serif'],
+            },
+          },
+        },
+      }
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
 </head>
-<body>
-    <header>
-        <nav>
-            <a href="/" class="logo">Fanager</a>
-            <div class="nav-links">
-                <a href="/privacy-policy">Privacy Policy</a>
-                <a href="/terms-of-service">Terms of Service</a>
-                <a href="mailto:support@kimusoft.io">Contact</a>
+<body class="bg-navy text-white font-sans">
+    <header id="site-nav" class="fixed top-0 left-0 right-0 z-50 transition-colors duration-300 bg-navy/70 backdrop-blur-md">
+        <nav class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
+            <a href="/" class="text-xl font-bold text-white hover:no-underline">Fanager</a>
+            <div class="flex items-center gap-6">
+                <a href="/features.html" class="text-slate-400 hover:text-white text-sm hidden sm:inline">Features</a>
+                <a href="#download" class="text-slate-400 hover:text-white text-sm hidden sm:inline">Download</a>
+                <span class="hidden lg:inline text-sm text-gray-500 italic">Coming soon to App Store &amp; Google Play</span>
+                <span class="lg:hidden text-sm text-gray-500 italic">Coming soon</span>
             </div>
         </nav>
     </header>
+
     <main>
-        <section class="hero">
-            <h1>Manage Your League.<br>Follow Your Team.</h1>
-            <p>Fanager is the easiest way to organize recreational sports leagues, manage teams, schedule matches, and keep fans in the loop.</p>
-            <div class="badges">
-                <!-- App Store badge will go here -->
-                <p class="coming-soon">Coming soon to the App Store</p>
+        <section class="min-h-screen flex items-center justify-center pt-20 pb-16 px-6 bg-gradient-to-b from-navy to-[#112240]">
+            <div class="max-w-6xl mx-auto flex flex-col lg:flex-row items-center gap-12 lg:gap-16">
+                <div class="text-center lg:text-left flex-1 animate-fade-up">
+                    <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight mb-6">Your League,<br>Your Way</h1>
+                    <p class="text-lg text-slate-400 max-w-lg mx-auto lg:mx-0 mb-8">Schedules. Payments. Standings. One app.</p>
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+                        <span class="text-gray-500 italic text-sm">Coming soon to the App Store and Google Play</span>
+                    </div>
+                </div>
+                <div class="flex-1 flex justify-center animate-slide-up">
+                    <img src="/images/hero-app.png" alt="Fanager app showing live league games and scores" class="w-64 rounded-[2rem] shadow-2xl shadow-blue-500/10">
+                </div>
+            </div>
+        </section>
+
+        <!-- Social Proof Bar -->
+        <section class="bg-[#0d1b30] py-8 px-6 border-y border-border-dark">
+            <div class="max-w-4xl mx-auto flex justify-center gap-12 sm:gap-16 text-center reveal">
+                <div>
+                    <span class="text-green-500 font-bold text-lg">Free</span>
+                    <span class="text-slate-400 text-sm ml-1">to use</span>
+                </div>
+                <div>
+                    <span class="text-cyan font-bold text-lg">iOS + Android</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Role Highlights -->
+        <section class="py-20 px-6">
+            <div class="max-w-6xl mx-auto">
+                <h2 class="text-3xl sm:text-4xl font-bold text-center mb-12 reveal">Built for Everyone in Your League</h2>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 reveal">
+                    <a href="/features.html#league-owners" class="block bg-card-dark border border-border-dark rounded-xl p-6 hover:border-blue-500/50 transition-colors group">
+                        <div class="w-10 h-10 bg-blue-500/10 rounded-lg flex items-center justify-center mb-4">
+                            <svg class="w-5 h-5 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+                        </div>
+                        <h3 class="text-lg font-semibold text-blue-500 mb-2">For League Owners</h3>
+                        <p class="text-slate-400 text-sm">Create leagues, collect fees, manage schedules</p>
+                    </a>
+                    <a href="/features.html#team-managers" class="block bg-card-dark border border-border-dark rounded-xl p-6 hover:border-green-500/50 transition-colors group">
+                        <div class="w-10 h-10 bg-green-500/10 rounded-lg flex items-center justify-center mb-4">
+                            <svg class="w-5 h-5 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+                        </div>
+                        <h3 class="text-lg font-semibold text-green-500 mb-2">For Team Managers</h3>
+                        <p class="text-slate-400 text-sm">Manage rosters, pay fees, track performance</p>
+                    </a>
+                    <a href="/features.html#fans" class="block bg-card-dark border border-border-dark rounded-xl p-6 hover:border-amber-500/50 transition-colors group">
+                        <div class="w-10 h-10 bg-amber-500/10 rounded-lg flex items-center justify-center mb-4">
+                            <svg class="w-5 h-5 text-amber-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/></svg>
+                        </div>
+                        <h3 class="text-lg font-semibold text-amber-500 mb-2">For Fans</h3>
+                        <p class="text-slate-400 text-sm">Follow teams, check scores, browse freely</p>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Key Features Showcase -->
+        <section class="py-20 px-6 bg-[#0d1b30]">
+            <div class="max-w-6xl mx-auto space-y-24">
+                <h2 class="text-3xl sm:text-4xl font-bold text-center mb-4 reveal">Powerful Features, Simple to Use</h2>
+
+                <!-- Feature 1: Schedule Generation (text left, mockup right) -->
+                <div class="flex flex-col lg:flex-row items-center gap-12 reveal">
+                    <div class="flex-1">
+                        <div class="w-10 h-10 bg-blue-500/10 rounded-lg flex items-center justify-center mb-4">
+                            <svg class="w-5 h-5 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+                        </div>
+                        <h3 class="text-2xl font-semibold mb-3">Auto-Generate Schedules</h3>
+                        <p class="text-slate-400 leading-relaxed">Create round-robin and tournament schedules automatically. Configure game days, time slots, and blackout dates — Fanager handles the rest.</p>
+                    </div>
+                    <div class="flex-1 flex justify-center">
+                        <img src="/images/feature-schedule.png" alt="Auto-generated league schedule view" class="w-56 rounded-[2rem] shadow-xl">
+                    </div>
+                </div>
+
+                <!-- Feature 2: Payments (mockup left, text right) -->
+                <div class="flex flex-col lg:flex-row-reverse items-center gap-12 reveal">
+                    <div class="flex-1">
+                        <div class="w-10 h-10 bg-green-500/10 rounded-lg flex items-center justify-center mb-4">
+                            <svg class="w-5 h-5 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z"/></svg>
+                        </div>
+                        <h3 class="text-2xl font-semibold mb-3">Built-in Payments</h3>
+                        <p class="text-slate-400 leading-relaxed">Collect team fees directly through the app with Stripe. Set flat-rate or per-player pricing, track payments, and issue refunds — all in one place.</p>
+                    </div>
+                    <div class="flex-1 flex justify-center">
+                        <img src="/images/role-owners.png" alt="League owner dashboard with season stats" class="w-56 rounded-[2rem] shadow-xl">
+                    </div>
+                </div>
+
+                <!-- Feature 3: Live Standings (text left, mockup right) -->
+                <div class="flex flex-col lg:flex-row items-center gap-12 reveal">
+                    <div class="flex-1">
+                        <div class="w-10 h-10 bg-cyan/10 rounded-lg flex items-center justify-center mb-4">
+                            <svg class="w-5 h-5 text-cyan" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/></svg>
+                        </div>
+                        <h3 class="text-2xl font-semibold mb-3">Live Standings</h3>
+                        <p class="text-slate-400 leading-relaxed">Standings update automatically after every match result. Record scores, reschedule or cancel games on the fly — everyone sees the latest.</p>
+                    </div>
+                    <div class="flex-1 flex justify-center">
+                        <img src="/images/feature-standings.png" alt="Live standings table with team rankings" class="w-56 rounded-[2rem] shadow-xl">
+                    </div>
+                </div>
+
+                <!-- Feature 4: Tournament Brackets (mockup left, text right) -->
+                <div class="flex flex-col lg:flex-row-reverse items-center gap-12 reveal">
+                    <div class="flex-1">
+                        <div class="w-10 h-10 bg-amber-500/10 rounded-lg flex items-center justify-center mb-4">
+                            <svg class="w-5 h-5 text-amber-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"/></svg>
+                        </div>
+                        <h3 class="text-2xl font-semibold mb-3">Tournament Brackets</h3>
+                        <p class="text-slate-400 leading-relaxed">Run elimination-style tournaments with a visual bracket view. Track every match from first round to finals.</p>
+                    </div>
+                    <div class="flex-1 flex justify-center">
+                        <img src="/images/feature-brackets.png" alt="Tournament bracket view with semi-finals and finals" class="w-56 rounded-[2rem] shadow-xl">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- How It Works -->
+        <section class="py-20 px-6">
+            <div class="max-w-4xl mx-auto text-center reveal">
+                <h2 class="text-3xl sm:text-4xl font-bold mb-16">Get Started in 3 Steps</h2>
+                <div class="flex flex-col md:flex-row items-center md:items-start gap-8 md:gap-4">
+                    <div class="flex-1 flex flex-col items-center">
+                        <div class="w-16 h-16 bg-blue-500/10 rounded-2xl flex items-center justify-center mb-4">
+                            <svg class="w-8 h-8 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"/></svg>
+                        </div>
+                        <h3 class="text-lg font-semibold mb-2">Create your league</h3>
+                        <p class="text-slate-400 text-sm">Set up your league, configure seasons, and define the schedule.</p>
+                    </div>
+                    <div class="hidden md:flex items-center pt-8">
+                        <svg class="w-8 h-8 text-border-dark" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+                    </div>
+                    <div class="flex-1 flex flex-col items-center">
+                        <div class="w-16 h-16 bg-green-500/10 rounded-2xl flex items-center justify-center mb-4">
+                            <svg class="w-8 h-8 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+                        </div>
+                        <h3 class="text-lg font-semibold mb-2">Invite teams</h3>
+                        <p class="text-slate-400 text-sm">Teams join your season, pay fees, and set up their rosters.</p>
+                    </div>
+                    <div class="hidden md:flex items-center pt-8">
+                        <svg class="w-8 h-8 text-border-dark" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+                    </div>
+                    <div class="flex-1 flex flex-col items-center">
+                        <div class="w-16 h-16 bg-amber-500/10 rounded-2xl flex items-center justify-center mb-4">
+                            <svg class="w-8 h-8 text-amber-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                        </div>
+                        <h3 class="text-lg font-semibold mb-2">Game on!</h3>
+                        <p class="text-slate-400 text-sm">Record scores, track standings, and keep everyone in the loop.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ -->
+        <section class="py-20 px-6 bg-[#0d1b30]">
+            <div class="max-w-3xl mx-auto reveal">
+                <h2 class="text-3xl sm:text-4xl font-bold text-center mb-12">Frequently Asked Questions</h2>
+                <div class="space-y-3" id="faq-list">
+                    <div class="faq-item border border-border-dark rounded-xl overflow-hidden">
+                        <button class="faq-toggle w-full text-left px-6 py-4 flex items-center justify-between hover:bg-card-dark/50 transition-colors" onclick="toggleFaq(this)">
+                            <span class="font-semibold">Is Fanager free?</span>
+                            <svg class="w-5 h-5 text-slate-400 transition-transform duration-300 faq-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                        </button>
+                        <div class="faq-answer max-h-0 overflow-hidden transition-all duration-300">
+                            <p class="px-6 pb-4 text-slate-400 text-sm leading-relaxed">Yes, Fanager is completely free to use. League owners can optionally collect team fees through built-in Stripe payments, but using the app itself costs nothing.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item border border-border-dark rounded-xl overflow-hidden">
+                        <button class="faq-toggle w-full text-left px-6 py-4 flex items-center justify-between hover:bg-card-dark/50 transition-colors" onclick="toggleFaq(this)">
+                            <span class="font-semibold">What sports does Fanager support?</span>
+                            <svg class="w-5 h-5 text-slate-400 transition-transform duration-300 faq-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                        </button>
+                        <div class="faq-answer max-h-0 overflow-hidden transition-all duration-300">
+                            <p class="px-6 pb-4 text-slate-400 text-sm leading-relaxed">Fanager is currently focused on recreational soccer (futbol) leagues. Support for additional sports may be added in the future.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item border border-border-dark rounded-xl overflow-hidden">
+                        <button class="faq-toggle w-full text-left px-6 py-4 flex items-center justify-between hover:bg-card-dark/50 transition-colors" onclick="toggleFaq(this)">
+                            <span class="font-semibold">How do payments work?</span>
+                            <svg class="w-5 h-5 text-slate-400 transition-transform duration-300 faq-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                        </button>
+                        <div class="faq-answer max-h-0 overflow-hidden transition-all duration-300">
+                            <p class="px-6 pb-4 text-slate-400 text-sm leading-relaxed">League owners connect their Stripe account and set per-season fees — either a flat rate or per-player pricing. Team managers pay directly in the app. League owners can track payments, issue refunds, and manage billing for each season.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item border border-border-dark rounded-xl overflow-hidden">
+                        <button class="faq-toggle w-full text-left px-6 py-4 flex items-center justify-between hover:bg-card-dark/50 transition-colors" onclick="toggleFaq(this)">
+                            <span class="font-semibold">Do I need an account to browse?</span>
+                            <svg class="w-5 h-5 text-slate-400 transition-transform duration-300 faq-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                        </button>
+                        <div class="faq-answer max-h-0 overflow-hidden transition-all duration-300">
+                            <p class="px-6 pb-4 text-slate-400 text-sm leading-relaxed">No. Guests can browse all leagues, teams, and standings without creating an account. You only need to sign up to follow teams, create leagues, or manage a team.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item border border-border-dark rounded-xl overflow-hidden">
+                        <button class="faq-toggle w-full text-left px-6 py-4 flex items-center justify-between hover:bg-card-dark/50 transition-colors" onclick="toggleFaq(this)">
+                            <span class="font-semibold">Is my data safe?</span>
+                            <svg class="w-5 h-5 text-slate-400 transition-transform duration-300 faq-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                        </button>
+                        <div class="faq-answer max-h-0 overflow-hidden transition-all duration-300">
+                            <p class="px-6 pb-4 text-slate-400 text-sm leading-relaxed">Yes. Fanager includes automatic content moderation, profanity filtering, image moderation, and user reporting and blocking. See our <a href="/privacy-policy" class="text-blue-500 hover:underline">Privacy Policy</a> for full details.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item border border-border-dark rounded-xl overflow-hidden">
+                        <button class="faq-toggle w-full text-left px-6 py-4 flex items-center justify-between hover:bg-card-dark/50 transition-colors" onclick="toggleFaq(this)">
+                            <span class="font-semibold">How do I get started?</span>
+                            <svg class="w-5 h-5 text-slate-400 transition-transform duration-300 faq-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                        </button>
+                        <div class="faq-answer max-h-0 overflow-hidden transition-all duration-300">
+                            <p class="px-6 pb-4 text-slate-400 text-sm leading-relaxed">Download Fanager from the App Store or Google Play. You can browse as a guest immediately, or create an account with Apple, Google, or email to start your first league.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQPage JSON-LD for SEO -->
+        <script type="application/ld+json">
+        {
+          "@context": "https://schema.org",
+          "@type": "FAQPage",
+          "mainEntity": [
+            {"@type": "Question", "name": "Is Fanager free?", "acceptedAnswer": {"@type": "Answer", "text": "Yes, Fanager is completely free to use. League owners can optionally collect team fees through built-in Stripe payments, but using the app itself costs nothing."}},
+            {"@type": "Question", "name": "What sports does Fanager support?", "acceptedAnswer": {"@type": "Answer", "text": "Fanager is currently focused on recreational soccer (futbol) leagues. Support for additional sports may be added in the future."}},
+            {"@type": "Question", "name": "How do payments work?", "acceptedAnswer": {"@type": "Answer", "text": "League owners connect their Stripe account and set per-season fees. Team managers pay directly in the app. League owners can track payments, issue refunds, and manage billing."}},
+            {"@type": "Question", "name": "Do I need an account to browse?", "acceptedAnswer": {"@type": "Answer", "text": "No. Guests can browse all leagues, teams, and standings without creating an account."}},
+            {"@type": "Question", "name": "Is my data safe?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Fanager includes automatic content moderation, profanity filtering, image moderation, and user reporting and blocking."}},
+            {"@type": "Question", "name": "How do I get started?", "acceptedAnswer": {"@type": "Answer", "text": "Download Fanager from the App Store or Google Play. You can browse as a guest immediately, or create an account with Apple, Google, or email to start your first league."}}
+          ]
+        }
+        </script>
+
+        <!-- Final CTA -->
+        <section id="download" class="py-20 px-6 bg-gradient-to-b from-navy to-[#112240]">
+            <div class="max-w-3xl mx-auto text-center reveal">
+                <h2 class="text-3xl sm:text-4xl font-bold mb-4">Ready to Run Your League?</h2>
+                <p class="text-slate-400 mb-8">Download Fanager for free on iOS and Android.</p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                    <span class="text-gray-500 italic text-sm">Coming soon to the App Store and Google Play</span>
+                </div>
             </div>
         </section>
     </main>
-    <footer>
-        <p>&copy; 2026 Kimusoft LLC. All rights reserved.</p>
-        <div class="footer-links">
-            <a href="/privacy-policy">Privacy Policy</a>
-            <a href="/terms-of-service">Terms of Service</a>
-            <a href="mailto:support@kimusoft.io">support@kimusoft.io</a>
+
+    <footer class="bg-footer-bg border-t border-border-dark py-10 px-6">
+        <div class="max-w-6xl mx-auto text-center">
+            <a href="/" class="text-lg font-bold text-white">Fanager</a>
+            <div class="flex justify-center gap-6 mt-4">
+                <a href="/privacy-policy" class="text-gray-500 hover:text-slate-400 text-sm">Privacy Policy</a>
+                <a href="/terms-of-service" class="text-gray-500 hover:text-slate-400 text-sm">Terms of Service</a>
+                <a href="mailto:support@kimusoft.io" class="text-gray-500 hover:text-slate-400 text-sm">Contact</a>
+            </div>
+            <p class="text-gray-600 text-xs mt-4">&copy; 2026 Kimusoft LLC. All rights reserved.</p>
         </div>
     </footer>
+
+    <style>
+        @keyframes fade-up { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+        @keyframes slide-up { from { opacity: 0; transform: translateY(40px); } to { opacity: 1; transform: translateY(0); } }
+        .animate-fade-up { animation: fade-up 0.6s ease-out both; }
+        .animate-slide-up { animation: slide-up 0.8s ease-out 0.2s both; }
+        .reveal { opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease-out, transform 0.6s ease-out; }
+        .reveal.visible { opacity: 1; transform: translateY(0); }
+        @media (prefers-reduced-motion: reduce) {
+            .animate-fade-up, .animate-slide-up { animation: none; opacity: 1; transform: none; }
+            .reveal { opacity: 1; transform: none; transition: none; }
+        }
+    </style>
+
+    <script>
+        const nav = document.getElementById('site-nav');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                nav.classList.remove('bg-navy/70');
+                nav.classList.add('bg-navy');
+            } else {
+                nav.classList.remove('bg-navy');
+                nav.classList.add('bg-navy/70');
+            }
+        });
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+        // FAQ accordion
+        function toggleFaq(button) {
+            const item = button.parentElement;
+            const answer = item.querySelector('.faq-answer');
+            const icon = item.querySelector('.faq-icon');
+            const isOpen = answer.style.maxHeight && answer.style.maxHeight !== '0px';
+
+            // Close all others
+            document.querySelectorAll('.faq-answer').forEach(a => { a.style.maxHeight = '0px'; });
+            document.querySelectorAll('.faq-icon').forEach(i => { i.style.transform = 'rotate(0deg)'; });
+
+            if (!isOpen) {
+                answer.style.maxHeight = answer.scrollHeight + 'px';
+                icon.style.transform = 'rotate(180deg)';
+            }
+        }
+    </script>
 </body>
 </html>
