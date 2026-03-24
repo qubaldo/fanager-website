@@ -3,6 +3,6 @@
   "target": {
     "namespace": "android_app",
     "package_name": "com.leaguemgr.league_mgr_app",
-    "sha256_cert_fingerprints": ["[SHA256_FINGERPRINT]"]
+    "sha256_cert_fingerprints": ["A5:12:C5:FC:D6:F1:4C:B7:0E:88:31:DC:C0:47:5C:10:7F:7E:92:4A:69:BF:AC:2A:F4:C8:EE:00:85:E1:AA:71"]
   }
 }]
