@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Features — Fanager</title>
+    <meta name="description" content="Explore Fanager's features for league owners, team managers, and fans. Schedule generation, payments, roster management, live scores, and more.">
+    <meta property="og:title" content="Features — Fanager">
+    <meta property="og:description" content="Explore Fanager's features for league owners, team managers, and fans. Schedule generation, payments, roster management, live scores, and more.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://fanager.app/features">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Features — Fanager">
+    <meta name="twitter:description" content="Explore Fanager's features for league owners, team managers, and fans. Schedule generation, payments, roster management, live scores, and more.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              navy: '#0A1628',
+              'card-dark': '#111827',
+              'border-dark': '#1F2937',
+              'footer-bg': '#060d1a',
+              cyan: '#06B6D4',
+            },
+            fontFamily: {
+              sans: ['Inter', 'system-ui', '-apple-system', 'sans-serif'],
+            },
+          },
+        },
+      }
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body class="bg-navy text-white font-sans">
+    <header id="site-nav" class="fixed top-0 left-0 right-0 z-50 transition-colors duration-300 bg-navy/70 backdrop-blur-md">
+        <nav class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
+            <a href="/" class="text-xl font-bold text-white hover:no-underline">Fanager</a>
+            <div class="flex items-center gap-6">
+                <a href="/features.html" class="text-slate-400 hover:text-white text-sm hidden sm:inline">Features</a>
+                <a href="/#download" class="text-slate-400 hover:text-white text-sm hidden sm:inline">Download</a>
+                <span class="hidden lg:inline text-sm text-gray-500 italic">Coming soon to App Store &amp; Google Play</span>
+                <span class="lg:hidden text-sm text-gray-500 italic">Coming soon</span>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Page Header -->
+        <section class="pt-32 pb-12 px-6 bg-gradient-to-b from-navy to-[#112240]">
+            <div class="max-w-4xl mx-auto text-center">
+                <h1 class="text-4xl sm:text-5xl font-bold mb-4">Everything You Need to Run a League</h1>
+                <p class="text-lg text-slate-400">From setup to game day — Fanager handles it all</p>
+            </div>
+        </section>
+
+        <!-- Sticky Role Tab Switcher -->
+        <div class="sticky top-[64px] z-40 bg-navy/90 backdrop-blur-md border-b border-border-dark py-3 px-6">
+            <div class="max-w-4xl mx-auto flex justify-center gap-2">
+                <button class="role-tab px-5 py-2 rounded-full text-sm font-semibold bg-blue-500 text-white transition-colors" data-target="league-owners" data-color="bg-blue-500">League Owners</button>
+                <button class="role-tab px-5 py-2 rounded-full text-sm font-semibold bg-gray-700 text-gray-400 transition-colors" data-target="team-managers" data-color="bg-green-500">Team Managers</button>
+                <button class="role-tab px-5 py-2 rounded-full text-sm font-semibold bg-gray-700 text-gray-400 transition-colors" data-target="fans" data-color="bg-amber-500">Fans</button>
+            </div>
+        </div>
+
+        <!-- League Owners Section -->
+        <section id="league-owners" class="role-section py-20 px-6">
+            <div class="max-w-4xl mx-auto">
+                <div class="flex items-center gap-3 mb-8 reveal">
+                    <div class="w-10 h-10 bg-blue-500/10 rounded-lg flex items-center justify-center">
+                        <svg class="w-5 h-5 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+                    </div>
+                    <h2 class="text-2xl sm:text-3xl font-bold text-blue-500">For League Owners</h2>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div class="bg-card-dark border border-border-dark rounded-xl p-5 reveal">
+                        <h3 class="text-white font-semibold mb-2">League & Season Setup</h3>
+                        <p class="text-slate-400 text-sm">Step-by-step wizard to create leagues and seasons. Configure game days, time slots, and blackout dates with ease.</p>
+                    </div>
+                    <div class="bg-card-dark border border-border-dark rounded-xl p-5 reveal">
+                        <h3 class="text-white font-semibold mb-2">Schedule Generation</h3>
+                        <p class="text-slate-400 text-sm">Auto-generate round-robin and tournament schedules. Fanager balances matchups and respects your availability constraints.</p>
+                    </div>
+                    <div class="bg-card-dark border border-border-dark rounded-xl p-5 reveal">
+                        <h3 class="text-white font-semibold mb-2">Payments & Billing</h3>
+                        <p class="text-slate-400 text-sm">Stripe integration for collecting fees. Set flat rate or per-player pricing, track payment status, and issue refunds.</p>
+                    </div>
+                    <div class="bg-card-dark border border-border-dark rounded-xl p-5 reveal">
+                        <h3 class="text-white font-semibold mb-2">Match Management</h3>
+                        <p class="text-slate-400 text-sm">Record scores, reschedule or cancel matches, and watch live standings auto-update across the league.</p>
+                    </div>
+                    <div class="bg-card-dark border border-border-dark rounded-xl p-5 reveal">
+                        <h3 class="text-white font-semibold mb-2">Team Invitations</h3>
+                        <p class="text-slate-400 text-sm">Invite teams to your season, approve join requests, and assign team managers via email.</p>
+                    </div>
+                    <div class="bg-card-dark border border-border-dark rounded-xl p-5 reveal">
+                        <h3 class="text-white font-semibold mb-2">Cross-League Dashboard</h3>
+                        <p class="text-slate-400 text-sm">See all your leagues' matches, scores, and action items in one unified dashboard.</p>
+                    </div>
+                    <div class="bg-card-dark border border-border-dark rounded-xl p-5 reveal">
+                        <h3 class="text-white font-semibold mb-2">Tournament Brackets</h3>
+                        <p class="text-slate-400 text-sm">Visual bracket view for elimination-style tournaments. Track every match from first round to finals.</p>
+                    </div>
+                </div>
+                <!-- Device Mockup Placeholder -->
+                <div class="flex justify-center mt-12 reveal">
+                    <div class="w-56 h-96 bg-card-dark rounded-[2rem] border border-border-dark flex items-center justify-center">
+                        <span class="text-slate-500 text-xs text-center px-4">[League Owner Screenshot]</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Team Managers Section -->
+        <section id="team-managers" class="role-section py-20 px-6 bg-[#0d1b30]">
+            <div class="max-w-4xl mx-auto">
+                <div class="flex items-center gap-3 mb-8 reveal">
+                    <div class="w-10 h-10 bg-green-500/10 rounded-lg flex items-center justify-center">
+                        <svg class="w-5 h-5 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+                    </div>
+                    <h2 class="text-2xl sm:text-3xl font-bold text-green-500">For Team Managers</h2>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div class="bg-card-dark border border-border-dark rounded-xl p-5 reveal">
+                        <h3 class="text-white font-semibold mb-2">Team & Roster Management</h3>
+                        <p class="text-slate-400 text-sm">Create your team, upload a custom logo, and manage your player roster all in one place.</p>
+                    </div>
+                    <div class="bg-card-dark border border-border-dark rounded-xl p-5 reveal">
+                        <h3 class="text-white font-semibold mb-2">Season Registration</h3>
+                        <p class="text-slate-400 text-sm">Request to join league seasons and pay registration fees directly in the app.</p>
+                    </div>
+                    <div class="bg-card-dark border border-border-dark rounded-xl p-5 reveal">
+                        <h3 class="text-white font-semibold mb-2">Performance Tracking</h3>
+                        <p class="text-slate-400 text-sm">View match history, league standings, and team stats to track your progress through the season.</p>
+                    </div>
+                    <div class="bg-card-dark border border-border-dark rounded-xl p-5 reveal">
+                        <h3 class="text-white font-semibold mb-2">Player Invitations</h3>
+                        <p class="text-slate-400 text-sm">Invite players to your team roster and manage your squad before the season starts.</p>
+                    </div>
+                </div>
+                <!-- Device Mockup Placeholder -->
+                <div class="flex justify-center mt-12 reveal">
+                    <div class="w-56 h-96 bg-card-dark rounded-[2rem] border border-border-dark flex items-center justify-center">
+                        <span class="text-slate-500 text-xs text-center px-4">[Team Manager Screenshot]</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Fans Section -->
+        <section id="fans" class="role-section py-20 px-6">
+            <div class="max-w-4xl mx-auto">
+                <div class="flex items-center gap-3 mb-8 reveal">
+                    <div class="w-10 h-10 bg-amber-500/10 rounded-lg flex items-center justify-center">
+                        <svg class="w-5 h-5 text-amber-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/></svg>
+                    </div>
+                    <h2 class="text-2xl sm:text-3xl font-bold text-amber-500">For Fans</h2>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                    <div class="bg-card-dark border border-border-dark rounded-xl p-5 reveal">
+                        <h3 class="text-white font-semibold mb-2">Guest Browsing</h3>
+                        <p class="text-slate-400 text-sm">Explore leagues, teams, and standings without creating an account. Jump right in.</p>
+                    </div>
+                    <div class="bg-card-dark border border-border-dark rounded-xl p-5 reveal">
+                        <h3 class="text-white font-semibold mb-2">Follow & Favorites</h3>
+                        <p class="text-slate-400 text-sm">Follow your favorite teams and leagues for quick access and updates on every match.</p>
+                    </div>
+                    <div class="bg-card-dark border border-border-dark rounded-xl p-5 reveal">
+                        <h3 class="text-white font-semibold mb-2">Live Scores</h3>
+                        <p class="text-slate-400 text-sm">Check schedules, scores, and results anytime. Stay up to date on every game.</p>
+                    </div>
+                </div>
+                <!-- Device Mockup Placeholder -->
+                <div class="flex justify-center mt-12 reveal">
+                    <div class="w-56 h-96 bg-card-dark rounded-[2rem] border border-border-dark flex items-center justify-center">
+                        <span class="text-slate-500 text-xs text-center px-4">[Fan View Screenshot]</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Platform Features Section -->
+        <section class="py-20 px-6 bg-[#0d1b30]">
+            <div class="max-w-4xl mx-auto text-center">
+                <div class="flex items-center justify-center gap-3 mb-8 reveal">
+                    <div class="w-10 h-10 bg-cyan/10 rounded-lg flex items-center justify-center">
+                        <svg class="w-5 h-5 text-cyan" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+                    </div>
+                    <h2 class="text-2xl sm:text-3xl font-bold text-cyan">Platform Features</h2>
+                </div>
+                <div class="flex flex-wrap justify-center gap-3 reveal">
+                    <span class="bg-cyan/10 border border-cyan/20 rounded-full px-4 py-2 text-cyan text-sm">Sign in with Apple / Google</span>
+                    <span class="bg-cyan/10 border border-cyan/20 rounded-full px-4 py-2 text-cyan text-sm">Push Notifications</span>
+                    <span class="bg-cyan/10 border border-cyan/20 rounded-full px-4 py-2 text-cyan text-sm">Image Moderation</span>
+                    <span class="bg-cyan/10 border border-cyan/20 rounded-full px-4 py-2 text-cyan text-sm">Profanity Filtering</span>
+                    <span class="bg-cyan/10 border border-cyan/20 rounded-full px-4 py-2 text-cyan text-sm">Content Reporting</span>
+                    <span class="bg-cyan/10 border border-cyan/20 rounded-full px-4 py-2 text-cyan text-sm">User Blocking</span>
+                    <span class="bg-cyan/10 border border-cyan/20 rounded-full px-4 py-2 text-cyan text-sm">Account Deletion</span>
+                    <span class="bg-cyan/10 border border-cyan/20 rounded-full px-4 py-2 text-cyan text-sm">Free to Use</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Final CTA -->
+        <section id="download" class="py-20 px-6 bg-gradient-to-b from-navy to-[#112240]">
+            <div class="max-w-3xl mx-auto text-center reveal">
+                <h2 class="text-3xl sm:text-4xl font-bold mb-4">Ready to Run Your League?</h2>
+                <p class="text-slate-400 mb-8">Download Fanager for free on iOS and Android.</p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                    <span class="text-gray-500 italic text-sm">Coming soon to the App Store and Google Play</span>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-footer-bg border-t border-border-dark py-10 px-6">
+        <div class="max-w-6xl mx-auto text-center">
+            <a href="/" class="text-lg font-bold text-white">Fanager</a>
+            <div class="flex justify-center gap-6 mt-4">
+                <a href="/privacy-policy" class="text-gray-500 hover:text-slate-400 text-sm">Privacy Policy</a>
+                <a href="/terms-of-service" class="text-gray-500 hover:text-slate-400 text-sm">Terms of Service</a>
+                <a href="mailto:support@kimusoft.io" class="text-gray-500 hover:text-slate-400 text-sm">Contact</a>
+            </div>
+            <p class="text-gray-600 text-xs mt-4">&copy; 2026 Kimusoft LLC. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <style>
+        #league-owners, #team-managers, #fans { scroll-margin-top: 140px; }
+        @keyframes fade-up { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+        @keyframes slide-up { from { opacity: 0; transform: translateY(40px); } to { opacity: 1; transform: translateY(0); } }
+        .animate-fade-up { animation: fade-up 0.6s ease-out both; }
+        .animate-slide-up { animation: slide-up 0.8s ease-out 0.2s both; }
+        .reveal { opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease-out, transform 0.6s ease-out; }
+        .reveal.visible { opacity: 1; transform: translateY(0); }
+        @media (prefers-reduced-motion: reduce) {
+            .animate-fade-up, .animate-slide-up { animation: none; opacity: 1; transform: none; }
+            .reveal { opacity: 1; transform: none; transition: none; }
+        }
+    </style>
+
+    <script>
+        // Nav scroll effect
+        const nav = document.getElementById('site-nav');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                nav.classList.remove('bg-navy/70');
+                nav.classList.add('bg-navy');
+            } else {
+                nav.classList.remove('bg-navy');
+                nav.classList.add('bg-navy/70');
+            }
+        });
+
+        // Reveal on scroll
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+        // Role tab switcher
+        const tabs = document.querySelectorAll('.role-tab');
+        const sections = document.querySelectorAll('.role-section');
+        const allColors = ['bg-blue-500', 'bg-green-500', 'bg-amber-500'];
+
+        function setActiveTab(id) {
+            tabs.forEach(tab => {
+                const isActive = tab.dataset.target === id;
+                allColors.forEach(c => tab.classList.remove(c));
+                if (isActive) {
+                    tab.classList.add(tab.dataset.color);
+                    tab.classList.remove('bg-gray-700', 'text-gray-400');
+                    tab.classList.add('text-white');
+                } else {
+                    tab.classList.add('bg-gray-700', 'text-gray-400');
+                    tab.classList.remove('text-white');
+                }
+            });
+        }
+
+        tabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                const target = document.getElementById(tab.dataset.target);
+                target.scrollIntoView({ behavior: 'smooth' });
+            });
+        });
+
+        const spyObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    setActiveTab(entry.target.id);
+                }
+            });
+        }, { rootMargin: '-140px 0px -60% 0px' });
+
+        sections.forEach(section => spyObserver.observe(section));
+
+        setActiveTab('league-owners');
+    </script>
+</body>
+</html>
