@@ -27,7 +27,23 @@
             "value": "max-age=604800"
           }
         ]
+      },
+      {
+        "source": "/.well-known/apple-app-site-association",
+        "headers": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ]
       }
+    ],
+    "rewrites": [
+      { "source": "/l/**", "destination": "/share.html" },
+      { "source": "/t/**", "destination": "/share.html" },
+      { "source": "/s/**", "destination": "/share.html" },
+      { "source": "/tr/**", "destination": "/share.html" },
+      { "source": "/m/**", "destination": "/share.html" }
     ]
   }
 }
