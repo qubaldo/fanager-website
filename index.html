@@ -3,37 +3,118 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fanager — Recreational Sports League Management</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Fanager — Manage Your Recreational Soccer League</title>
+    <meta name="description" content="The all-in-one app for recreational soccer leagues. Create leagues, manage teams, collect payments, and track standings. Free on iOS and Android.">
+    <meta property="og:title" content="Fanager — Manage Your Recreational Soccer League">
+    <meta property="og:description" content="The all-in-one app for recreational soccer leagues. Create leagues, manage teams, collect payments, and track standings. Free on iOS and Android.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://fanager.app">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Fanager — Manage Your Recreational Soccer League">
+    <meta name="twitter:description" content="The all-in-one app for recreational soccer leagues. Create leagues, manage teams, collect payments, and track standings.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              navy: '#0A1628',
+              'card-dark': '#111827',
+              'border-dark': '#1F2937',
+              'footer-bg': '#060d1a',
+              cyan: '#06B6D4',
+            },
+            fontFamily: {
+              sans: ['Inter', 'system-ui', '-apple-system', 'sans-serif'],
+            },
+          },
+        },
+      }
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
 </head>
-<body>
-    <header>
-        <nav>
-            <a href="/" class="logo">Fanager</a>
-            <div class="nav-links">
-                <a href="/privacy-policy">Privacy Policy</a>
-                <a href="/terms-of-service">Terms of Service</a>
-                <a href="mailto:support@kimusoft.io">Contact</a>
+<body class="bg-navy text-white font-sans">
+    <header id="site-nav" class="fixed top-0 left-0 right-0 z-50 transition-colors duration-300 bg-navy/70 backdrop-blur-md">
+        <nav class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
+            <a href="/" class="text-xl font-bold text-white hover:no-underline">Fanager</a>
+            <div class="flex items-center gap-6">
+                <a href="/features.html" class="text-slate-400 hover:text-white text-sm hidden sm:inline">Features</a>
+                <a href="#download" class="text-slate-400 hover:text-white text-sm hidden sm:inline">Download</a>
+                <span class="hidden lg:inline text-sm text-gray-500 italic">Coming soon to App Store &amp; Google Play</span>
+                <span class="lg:hidden text-sm text-gray-500 italic">Coming soon</span>
             </div>
         </nav>
     </header>
+
     <main>
-        <section class="hero">
-            <h1>Manage Your League.<br>Follow Your Team.</h1>
-            <p>Fanager is the easiest way to organize recreational sports leagues, manage teams, schedule matches, and keep fans in the loop.</p>
-            <div class="badges">
-                <!-- App Store badge will go here -->
-                <p class="coming-soon">Coming soon to the App Store</p>
+        <section class="min-h-screen flex items-center justify-center pt-20 pb-16 px-6 bg-gradient-to-b from-navy to-[#112240]">
+            <div class="max-w-6xl mx-auto flex flex-col lg:flex-row items-center gap-12 lg:gap-16">
+                <div class="text-center lg:text-left flex-1 animate-fade-up">
+                    <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight mb-6">Your League,<br>Your Way</h1>
+                    <p class="text-lg text-slate-400 max-w-lg mx-auto lg:mx-0 mb-8">Schedules. Payments. Standings. One app.</p>
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+                        <span class="text-gray-500 italic text-sm">Coming soon to the App Store and Google Play</span>
+                    </div>
+                </div>
+                <div class="flex-1 flex justify-center animate-slide-up">
+                    <div class="w-64 h-[500px] bg-card-dark rounded-[2.5rem] border-2 border-border-dark flex items-center justify-center shadow-2xl shadow-blue-500/10">
+                        <span class="text-slate-500 text-sm text-center px-4">[App Screenshot Placeholder]</span>
+                    </div>
+                </div>
             </div>
         </section>
+
+        <!-- Sections 3-9 will be added in subsequent tasks -->
     </main>
-    <footer>
-        <p>&copy; 2026 Kimusoft LLC. All rights reserved.</p>
-        <div class="footer-links">
-            <a href="/privacy-policy">Privacy Policy</a>
-            <a href="/terms-of-service">Terms of Service</a>
-            <a href="mailto:support@kimusoft.io">support@kimusoft.io</a>
+
+    <footer class="bg-footer-bg border-t border-border-dark py-10 px-6">
+        <div class="max-w-6xl mx-auto text-center">
+            <a href="/" class="text-lg font-bold text-white">Fanager</a>
+            <div class="flex justify-center gap-6 mt-4">
+                <a href="/privacy-policy" class="text-gray-500 hover:text-slate-400 text-sm">Privacy Policy</a>
+                <a href="/terms-of-service" class="text-gray-500 hover:text-slate-400 text-sm">Terms of Service</a>
+                <a href="mailto:support@kimusoft.io" class="text-gray-500 hover:text-slate-400 text-sm">Contact</a>
+            </div>
+            <p class="text-gray-600 text-xs mt-4">&copy; 2026 Kimusoft LLC. All rights reserved.</p>
         </div>
     </footer>
+
+    <style>
+        @keyframes fade-up { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+        @keyframes slide-up { from { opacity: 0; transform: translateY(40px); } to { opacity: 1; transform: translateY(0); } }
+        .animate-fade-up { animation: fade-up 0.6s ease-out both; }
+        .animate-slide-up { animation: slide-up 0.8s ease-out 0.2s both; }
+        .reveal { opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease-out, transform 0.6s ease-out; }
+        .reveal.visible { opacity: 1; transform: translateY(0); }
+        @media (prefers-reduced-motion: reduce) {
+            .animate-fade-up, .animate-slide-up { animation: none; opacity: 1; transform: none; }
+            .reveal { opacity: 1; transform: none; transition: none; }
+        }
+    </style>
+
+    <script>
+        const nav = document.getElementById('site-nav');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                nav.classList.remove('bg-navy/70');
+                nav.classList.add('bg-navy');
+            } else {
+                nav.classList.remove('bg-navy');
+                nav.classList.add('bg-navy/70');
+            }
+        });
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+    </script>
 </body>
 </html>
