@@ -4,154 +4,272 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Terms of Service — Fanager</title>
-    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              navy: '#0A1628',
+              'card-dark': '#111827',
+              'border-dark': '#1F2937',
+              'footer-bg': '#060d1a',
+              cyan: '#06B6D4',
+            },
+            fontFamily: {
+              sans: ['Inter', 'system-ui', '-apple-system', 'sans-serif'],
+            },
+          },
+        },
+      }
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
 </head>
-<body>
-    <header>
-        <nav>
-            <a href="/" class="logo">Fanager</a>
-            <div class="nav-links">
-                <a href="/privacy-policy">Privacy Policy</a>
-                <a href="/terms-of-service">Terms of Service</a>
-                <a href="mailto:support@kimusoft.io">Contact</a>
-            </div>
-        </nav>
-    </header>
-    <main class="legal">
-        <h1>Terms of Service</h1>
-        <p class="updated">Last Updated: March 20, 2026</p>
+<body class="bg-navy text-white font-sans min-h-screen flex flex-col">
+    <!-- Minimal nav: just logo -->
+    <div class="text-center pt-8 mb-6 px-6">
+        <a href="/" class="text-lg font-bold text-white">Fanager</a>
+    </div>
 
-        <p>Welcome to Fanager. These Terms of Service ("Terms") govern your use of the Fanager mobile application ("Fanager" or the "App") operated by Kimusoft LLC ("Kimusoft," "we," "us," or "our").</p>
-        <p>By downloading, installing, or using Fanager, you agree to be bound by these Terms. If you do not agree, do not use the App.</p>
-
-        <h2>1. Eligibility</h2>
-        <p>Fanager is rated 4+ and is available to users of all ages. If you are under the age of 13, you must have your parent or legal guardian's permission to use the App and create an account. By creating an account for a child under 13, the parent or guardian agrees to these Terms on the child's behalf and assumes responsibility for the child's use of the App.</p>
-
-        <h2>2. Account Registration</h2>
-        <p>To access certain features, you must create an account using Google Sign-In, Apple Sign-In, or email registration. You agree to:</p>
-        <ul>
-            <li>Provide accurate and complete information</li>
-            <li>Keep your account credentials secure</li>
-            <li>Notify us promptly of any unauthorized use of your account</li>
-            <li>Accept responsibility for all activity that occurs under your account</li>
-        </ul>
-        <p>You may only maintain one account per person. We reserve the right to suspend or terminate accounts that violate these Terms.</p>
-
-        <h2>3. Description of Service</h2>
-        <p>Fanager is a recreational sports league management application. The App allows users to:</p>
-        <ul>
-            <li>Create and manage leagues, teams, seasons, tournaments, and matches</li>
-            <li>Record and view match scores and schedules</li>
-            <li>Follow leagues and teams as a spectator</li>
-            <li>Upload images including league logos, team logos, and banners</li>
-            <li>Receive push notifications about followed leagues and teams</li>
-        </ul>
-        <p>Some features may require a paid subscription or one-time purchase, which are processed through Stripe.</p>
-
-        <h2>4. User-Generated Content</h2>
-
-        <h3>4.1 Your Content</h3>
-        <p>You retain ownership of any content you submit to Fanager, including league names, team names, descriptions, images, and other materials ("User Content"). By submitting User Content, you grant Kimusoft a worldwide, non-exclusive, royalty-free license to use, display, reproduce, and distribute your User Content solely for the purpose of operating and improving the App.</p>
-
-        <h3>4.2 Content Standards</h3>
-        <p>You agree not to submit User Content that:</p>
-        <ul>
-            <li>Is unlawful, harmful, threatening, abusive, harassing, defamatory, vulgar, obscene, or otherwise objectionable</li>
-            <li>Infringes on any patent, trademark, copyright, or other proprietary right of any party</li>
-            <li>Contains personally identifiable information of another person without their consent</li>
-            <li>Promotes illegal activities or violence</li>
-            <li>Contains spam, advertising, or solicitation</li>
-            <li>Impersonates any person or entity</li>
-            <li>Contains viruses, malware, or other harmful code</li>
-        </ul>
-
-        <h3>4.3 Content Moderation</h3>
-        <p>We employ automated systems including profanity filters and image moderation to review User Content. We also allow users to report content that may violate these Terms. We reserve the right, but are not obligated, to:</p>
-        <ul>
-            <li>Review, modify, or remove any User Content at our sole discretion</li>
-            <li>Suspend or terminate accounts that repeatedly violate content standards</li>
-            <li>Take any action we deem necessary to maintain the safety and integrity of the App</li>
-        </ul>
-
-        <h2>5. Prohibited Conduct</h2>
-        <p>When using Fanager, you agree not to:</p>
-        <ul>
-            <li>Use the App for any unlawful purpose</li>
-            <li>Attempt to gain unauthorized access to other users' accounts or our systems</li>
-            <li>Interfere with or disrupt the App or its servers</li>
-            <li>Reverse engineer, decompile, or disassemble any portion of the App</li>
-            <li>Use automated scripts, bots, or scrapers to access the App</li>
-            <li>Harass, bully, or intimidate other users</li>
-            <li>Create leagues, teams, or content intended to deceive or mislead</li>
-            <li>Circumvent or disable content moderation features</li>
-            <li>Use the App to collect personal information about other users without their consent</li>
-        </ul>
-
-        <h2>6. Payments and Subscriptions</h2>
-        <h3>6.1 Purchases</h3>
-        <p>Certain features of Fanager may require payment. All payments are processed by Stripe. By making a purchase, you agree to Stripe's terms of service and authorize the applicable charges.</p>
-        <h3>6.2 Refunds</h3>
-        <p>Refund eligibility is determined in accordance with the applicable app store's refund policies (Apple App Store). For questions about specific charges, contact us at <a href="mailto:support@kimusoft.io">support@kimusoft.io</a>.</p>
-
-        <h2>7. Intellectual Property</h2>
-        <p>The App, including its design, features, code, graphics, and trademarks, is owned by Kimusoft LLC and protected by intellectual property laws. These Terms do not grant you any right to use Kimusoft's or Fanager's name, logo, or trademarks.</p>
-
-        <h2>8. Account Deletion</h2>
-        <p>You may delete your account at any time through the App's account settings. Upon deletion:</p>
-        <ul>
-            <li>Your account and personal data will be permanently removed</li>
-            <li>Content you created (leagues, teams, matches, images) will be deleted or disassociated from your identity</li>
-            <li>This action is irreversible and cannot be undone</li>
-        </ul>
-        <p>We may also delete or suspend your account if you violate these Terms.</p>
-
-        <h2>9. Disclaimers</h2>
-        <p>THE APP IS PROVIDED "AS IS" AND "AS AVAILABLE" WITHOUT WARRANTIES OF ANY KIND, EITHER EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO IMPLIED WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, AND NON-INFRINGEMENT.</p>
-        <p>We do not warrant that the App will be uninterrupted, error-free, or secure. We do not endorse or guarantee the accuracy of any User Content posted through the App.</p>
-        <p>Fanager is designed for recreational sports league management. We are not responsible for the organization, conduct, or outcome of any leagues, games, tournaments, or events managed through the App.</p>
-
-        <h2>10. Limitation of Liability</h2>
-        <p>TO THE MAXIMUM EXTENT PERMITTED BY APPLICABLE LAW, KIMUSOFT LLC SHALL NOT BE LIABLE FOR ANY INDIRECT, INCIDENTAL, SPECIAL, CONSEQUENTIAL, OR PUNITIVE DAMAGES, OR ANY LOSS OF PROFITS OR REVENUES, WHETHER INCURRED DIRECTLY OR INDIRECTLY, OR ANY LOSS OF DATA, USE, GOODWILL, OR OTHER INTANGIBLE LOSSES, RESULTING FROM:</p>
-        <ul>
-            <li>Your use or inability to use the App</li>
-            <li>Any unauthorized access to or use of our servers and any personal information stored therein</li>
-            <li>Any User Content posted through the App</li>
-            <li>Any errors, bugs, or interruptions in the App</li>
-        </ul>
-        <p>OUR TOTAL LIABILITY FOR ANY CLAIMS ARISING FROM OR RELATED TO THESE TERMS OR THE APP SHALL NOT EXCEED THE AMOUNT YOU PAID TO US IN THE TWELVE (12) MONTHS PRECEDING THE CLAIM, OR FIFTY DOLLARS ($50), WHICHEVER IS GREATER.</p>
-
-        <h2>11. Indemnification</h2>
-        <p>You agree to indemnify and hold harmless Kimusoft LLC, its officers, directors, employees, and agents from any claims, liabilities, damages, losses, and expenses (including reasonable attorney's fees) arising out of or in connection with your use of the App, your User Content, or your violation of these Terms.</p>
-
-        <h2>12. Governing Law</h2>
-        <p>These Terms shall be governed by and construed in accordance with the laws of the State of Florida, without regard to its conflict of law provisions. Any disputes arising from these Terms or your use of the App shall be resolved in the state or federal courts located in Florida.</p>
-
-        <h2>13. Third-Party Services</h2>
-        <p>The App integrates with third-party services including Google Sign-In, Apple Sign-In, Supabase, Firebase Cloud Messaging, Google Cloud Vision, and Stripe. Your use of these services is subject to their respective terms and privacy policies. We are not responsible for the practices or content of third-party services.</p>
-
-        <h2>14. Changes to These Terms</h2>
-        <p>We may revise these Terms at any time. We will notify you of material changes by posting updated Terms within the App and updating the "Last Updated" date. Your continued use of the App after revised Terms are posted constitutes your acceptance of the changes. If you do not agree to the revised Terms, you must stop using the App.</p>
-
-        <h2>15. Termination</h2>
-        <p>We reserve the right to suspend or terminate your access to the App at any time, with or without cause and with or without notice. Upon termination, your right to use the App ceases immediately. Sections 4.1, 7, 9, 10, 11, and 12 shall survive termination.</p>
-
-        <h2>16. Severability</h2>
-        <p>If any provision of these Terms is found to be unenforceable or invalid, that provision shall be limited or eliminated to the minimum extent necessary so that the remaining provisions remain in full force and effect.</p>
-
-        <h2>17. Entire Agreement</h2>
-        <p>These Terms, together with our Privacy Policy, constitute the entire agreement between you and Kimusoft LLC regarding your use of Fanager and supersede any prior agreements.</p>
-
-        <h2>18. Contact Us</h2>
-        <p>If you have questions about these Terms, please contact us at:</p>
-        <p>Kimusoft LLC<br>Email: <a href="mailto:support@kimusoft.io">support@kimusoft.io</a></p>
-    </main>
-    <footer>
-        <p>&copy; 2026 Kimusoft LLC. All rights reserved.</p>
-        <div class="footer-links">
-            <a href="/privacy-policy">Privacy Policy</a>
-            <a href="/terms-of-service">Terms of Service</a>
-            <a href="mailto:support@kimusoft.io">support@kimusoft.io</a>
+    <main class="flex-1 max-w-3xl mx-auto px-6 pb-16 w-full">
+        <!-- Breadcrumb -->
+        <div class="mb-6">
+            <a href="/" class="text-blue-500 text-sm hover:underline">Home</a>
+            <span class="text-gray-600 text-sm mx-1">/</span>
+            <span class="text-slate-400 text-sm">Terms of Service</span>
         </div>
+
+        <!-- Content card -->
+        <div class="bg-card-dark border border-border-dark rounded-xl p-8 sm:p-10">
+            <h1 class="text-2xl sm:text-3xl font-bold mb-2">Terms of Service</h1>
+            <p class="text-gray-500 text-sm mb-8">Last Updated: March 20, 2026</p>
+
+            <p class="text-slate-400 text-[15px] leading-relaxed mb-3">Welcome to Fanager. These Terms of Service ("Terms") govern your use of the Fanager mobile application ("Fanager" or the "App") operated by Kimusoft LLC ("Kimusoft," "we," "us," or "our").</p>
+            <p class="text-slate-400 text-[15px] leading-relaxed mb-8">By downloading, installing, or using Fanager, you agree to be bound by these Terms. If you do not agree, do not use the App.</p>
+
+            <!-- Table of Contents -->
+            <div class="bg-navy rounded-lg p-4 mb-8">
+                <p class="text-slate-400 text-xs uppercase tracking-wide mb-3">Contents</p>
+                <div class="space-y-1">
+                    <a href="#section-1" class="block text-blue-500 text-sm hover:underline">1. Eligibility</a>
+                    <a href="#section-2" class="block text-blue-500 text-sm hover:underline">2. Account Registration</a>
+                    <a href="#section-3" class="block text-blue-500 text-sm hover:underline">3. Description of Service</a>
+                    <a href="#section-4" class="block text-blue-500 text-sm hover:underline">4. User-Generated Content</a>
+                    <a href="#section-5" class="block text-blue-500 text-sm hover:underline">5. Prohibited Conduct</a>
+                    <a href="#section-6" class="block text-blue-500 text-sm hover:underline">6. Payments and Subscriptions</a>
+                    <a href="#section-7" class="block text-blue-500 text-sm hover:underline">7. Intellectual Property</a>
+                    <a href="#section-8" class="block text-blue-500 text-sm hover:underline">8. Account Deletion</a>
+                    <a href="#section-9" class="block text-blue-500 text-sm hover:underline">9. Disclaimers</a>
+                    <a href="#section-10" class="block text-blue-500 text-sm hover:underline">10. Limitation of Liability</a>
+                    <a href="#section-11" class="block text-blue-500 text-sm hover:underline">11. Indemnification</a>
+                    <a href="#section-12" class="block text-blue-500 text-sm hover:underline">12. Governing Law</a>
+                    <a href="#section-13" class="block text-blue-500 text-sm hover:underline">13. Third-Party Services</a>
+                    <a href="#section-14" class="block text-blue-500 text-sm hover:underline">14. Changes to These Terms</a>
+                    <a href="#section-15" class="block text-blue-500 text-sm hover:underline">15. Termination</a>
+                    <a href="#section-16" class="block text-blue-500 text-sm hover:underline">16. Severability</a>
+                    <a href="#section-17" class="block text-blue-500 text-sm hover:underline">17. Entire Agreement</a>
+                    <a href="#section-18" class="block text-blue-500 text-sm hover:underline">18. Contact Us</a>
+                </div>
+            </div>
+
+            <!-- Sections -->
+            <div class="space-y-8">
+                <div id="section-1" class="pt-2">
+                    <h2 class="text-lg font-semibold text-white mb-3">1. Eligibility</h2>
+                    <p class="text-slate-400 text-[15px] leading-relaxed mb-3">Fanager is rated 4+ and is available to users of all ages. If you are under the age of 13, you must have your parent or legal guardian's permission to use the App and create an account. By creating an account for a child under 13, the parent or guardian agrees to these Terms on the child's behalf and assumes responsibility for the child's use of the App.</p>
+                </div>
+
+                <div class="border-t border-border-dark"></div>
+
+                <div id="section-2" class="pt-2">
+                    <h2 class="text-lg font-semibold text-white mb-3">2. Account Registration</h2>
+                    <p class="text-slate-400 text-[15px] leading-relaxed mb-3">To access certain features, you must create an account using Google Sign-In, Apple Sign-In, or email registration. You agree to:</p>
+                    <ul class="list-disc pl-6 space-y-1 text-slate-400 text-[15px] leading-relaxed mb-3">
+                        <li>Provide accurate and complete information</li>
+                        <li>Keep your account credentials secure</li>
+                        <li>Notify us promptly of any unauthorized use of your account</li>
+                        <li>Accept responsibility for all activity that occurs under your account</li>
+                    </ul>
+                    <p class="text-slate-400 text-[15px] leading-relaxed mb-3">You may only maintain one account per person. We reserve the right to suspend or terminate accounts that violate these Terms.</p>
+                </div>
+
+                <div class="border-t border-border-dark"></div>
+
+                <div id="section-3" class="pt-2">
+                    <h2 class="text-lg font-semibold text-white mb-3">3. Description of Service</h2>
+                    <p class="text-slate-400 text-[15px] leading-relaxed mb-3">Fanager is a recreational sports league management application. The App allows users to:</p>
+                    <ul class="list-disc pl-6 space-y-1 text-slate-400 text-[15px] leading-relaxed mb-3">
+                        <li>Create and manage leagues, teams, seasons, tournaments, and matches</li>
+                        <li>Record and view match scores and schedules</li>
+                        <li>Follow leagues and teams as a spectator</li>
+                        <li>Upload images including league logos, team logos, and banners</li>
+                        <li>Receive push notifications about followed leagues and teams</li>
+                    </ul>
+                    <p class="text-slate-400 text-[15px] leading-relaxed mb-3">Some features may require a paid subscription or one-time purchase, which are processed through Stripe.</p>
+                </div>
+
+                <div class="border-t border-border-dark"></div>
+
+                <div id="section-4" class="pt-2">
+                    <h2 class="text-lg font-semibold text-white mb-3">4. User-Generated Content</h2>
+                    <h3 class="text-base font-semibold text-white mt-4 mb-2">4.1 Your Content</h3>
+                    <p class="text-slate-400 text-[15px] leading-relaxed mb-3">You retain ownership of any content you submit to Fanager, including league names, team names, descriptions, images, and other materials ("User Content"). By submitting User Content, you grant Kimusoft a worldwide, non-exclusive, royalty-free license to use, display, reproduce, and distribute your User Content solely for the purpose of operating and improving the App.</p>
+                    <h3 class="text-base font-semibold text-white mt-4 mb-2">4.2 Content Standards</h3>
+                    <p class="text-slate-400 text-[15px] leading-relaxed mb-3">You agree not to submit User Content that:</p>
+                    <ul class="list-disc pl-6 space-y-1 text-slate-400 text-[15px] leading-relaxed mb-3">
+                        <li>Is unlawful, harmful, threatening, abusive, harassing, defamatory, vulgar, obscene, or otherwise objectionable</li>
+                        <li>Infringes on any patent, trademark, copyright, or other proprietary right of any party</li>
+                        <li>Contains personally identifiable information of another person without their consent</li>
+                        <li>Promotes illegal activities or violence</li>
+                        <li>Contains spam, advertising, or solicitation</li>
+                        <li>Impersonates any person or entity</li>
+                        <li>Contains viruses, malware, or other harmful code</li>
+                    </ul>
+                    <h3 class="text-base font-semibold text-white mt-4 mb-2">4.3 Content Moderation</h3>
+                    <p class="text-slate-400 text-[15px] leading-relaxed mb-3">We employ automated systems including profanity filters and image moderation to review User Content. We also allow users to report content that may violate these Terms. We reserve the right, but are not obligated, to:</p>
+                    <ul class="list-disc pl-6 space-y-1 text-slate-400 text-[15px] leading-relaxed mb-3">
+                        <li>Review, modify, or remove any User Content at our sole discretion</li>
+                        <li>Suspend or terminate accounts that repeatedly violate content standards</li>
+                        <li>Take any action we deem necessary to maintain the safety and integrity of the App</li>
+                    </ul>
+                </div>
+
+                <div class="border-t border-border-dark"></div>
+
+                <div id="section-5" class="pt-2">
+                    <h2 class="text-lg font-semibold text-white mb-3">5. Prohibited Conduct</h2>
+                    <p class="text-slate-400 text-[15px] leading-relaxed mb-3">When using Fanager, you agree not to:</p>
+                    <ul class="list-disc pl-6 space-y-1 text-slate-400 text-[15px] leading-relaxed mb-3">
+                        <li>Use the App for any unlawful purpose</li>
+                        <li>Attempt to gain unauthorized access to other users' accounts or our systems</li>
+                        <li>Interfere with or disrupt the App or its servers</li>
+                        <li>Reverse engineer, decompile, or disassemble any portion of the App</li>
+                        <li>Use automated scripts, bots, or scrapers to access the App</li>
+                        <li>Harass, bully, or intimidate other users</li>
+                        <li>Create leagues, teams, or content intended to deceive or mislead</li>
+                        <li>Circumvent or disable content moderation features</li>
+                        <li>Use the App to collect personal information about other users without their consent</li>
+                    </ul>
+                </div>
+
+                <div class="border-t border-border-dark"></div>
+
+                <div id="section-6" class="pt-2">
+                    <h2 class="text-lg font-semibold text-white mb-3">6. Payments and Subscriptions</h2>
+                    <h3 class="text-base font-semibold text-white mt-4 mb-2">6.1 Purchases</h3>
+                    <p class="text-slate-400 text-[15px] leading-relaxed mb-3">Certain features of Fanager may require payment. All payments are processed by Stripe. By making a purchase, you agree to Stripe's terms of service and authorize the applicable charges.</p>
+                    <h3 class="text-base font-semibold text-white mt-4 mb-2">6.2 Refunds</h3>
+                    <p class="text-slate-400 text-[15px] leading-relaxed mb-3">Refund eligibility is determined in accordance with the applicable app store's refund policies (Apple App Store). For questions about specific charges, contact us at <a href="mailto:support@kimusoft.io" class="text-blue-500 hover:underline">support@kimusoft.io</a>.</p>
+                </div>
+
+                <div class="border-t border-border-dark"></div>
+
+                <div id="section-7" class="pt-2">
+                    <h2 class="text-lg font-semibold text-white mb-3">7. Intellectual Property</h2>
+                    <p class="text-slate-400 text-[15px] leading-relaxed mb-3">The App, including its design, features, code, graphics, and trademarks, is owned by Kimusoft LLC and protected by intellectual property laws. These Terms do not grant you any right to use Kimusoft's or Fanager's name, logo, or trademarks.</p>
+                </div>
+
+                <div class="border-t border-border-dark"></div>
+
+                <div id="section-8" class="pt-2">
+                    <h2 class="text-lg font-semibold text-white mb-3">8. Account Deletion</h2>
+                    <p class="text-slate-400 text-[15px] leading-relaxed mb-3">You may delete your account at any time through the App's account settings. Upon deletion:</p>
+                    <ul class="list-disc pl-6 space-y-1 text-slate-400 text-[15px] leading-relaxed mb-3">
+                        <li>Your account and personal data will be permanently removed</li>
+                        <li>Content you created (leagues, teams, matches, images) will be deleted or disassociated from your identity</li>
+                        <li>This action is irreversible and cannot be undone</li>
+                    </ul>
+                    <p class="text-slate-400 text-[15px] leading-relaxed mb-3">We may also delete or suspend your account if you violate these Terms.</p>
+                </div>
+
+                <div class="border-t border-border-dark"></div>
+
+                <div id="section-9" class="pt-2">
+                    <h2 class="text-lg font-semibold text-white mb-3">9. Disclaimers</h2>
+                    <p class="text-slate-400 text-[15px] leading-relaxed mb-3">THE APP IS PROVIDED "AS IS" AND "AS AVAILABLE" WITHOUT WARRANTIES OF ANY KIND, EITHER EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO IMPLIED WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, AND NON-INFRINGEMENT.</p>
+                    <p class="text-slate-400 text-[15px] leading-relaxed mb-3">We do not warrant that the App will be uninterrupted, error-free, or secure. We do not endorse or guarantee the accuracy of any User Content posted through the App.</p>
+                    <p class="text-slate-400 text-[15px] leading-relaxed mb-3">Fanager is designed for recreational sports league management. We are not responsible for the organization, conduct, or outcome of any leagues, games, tournaments, or events managed through the App.</p>
+                </div>
+
+                <div class="border-t border-border-dark"></div>
+
+                <div id="section-10" class="pt-2">
+                    <h2 class="text-lg font-semibold text-white mb-3">10. Limitation of Liability</h2>
+                    <p class="text-slate-400 text-[15px] leading-relaxed mb-3">TO THE MAXIMUM EXTENT PERMITTED BY APPLICABLE LAW, KIMUSOFT LLC SHALL NOT BE LIABLE FOR ANY INDIRECT, INCIDENTAL, SPECIAL, CONSEQUENTIAL, OR PUNITIVE DAMAGES, OR ANY LOSS OF PROFITS OR REVENUES, WHETHER INCURRED DIRECTLY OR INDIRECTLY, OR ANY LOSS OF DATA, USE, GOODWILL, OR OTHER INTANGIBLE LOSSES, RESULTING FROM:</p>
+                    <ul class="list-disc pl-6 space-y-1 text-slate-400 text-[15px] leading-relaxed mb-3">
+                        <li>Your use or inability to use the App</li>
+                        <li>Any unauthorized access to or use of our servers and any personal information stored therein</li>
+                        <li>Any User Content posted through the App</li>
+                        <li>Any errors, bugs, or interruptions in the App</li>
+                    </ul>
+                    <p class="text-slate-400 text-[15px] leading-relaxed mb-3">OUR TOTAL LIABILITY FOR ANY CLAIMS ARISING FROM OR RELATED TO THESE TERMS OR THE APP SHALL NOT EXCEED THE AMOUNT YOU PAID TO US IN THE TWELVE (12) MONTHS PRECEDING THE CLAIM, OR FIFTY DOLLARS ($50), WHICHEVER IS GREATER.</p>
+                </div>
+
+                <div class="border-t border-border-dark"></div>
+
+                <div id="section-11" class="pt-2">
+                    <h2 class="text-lg font-semibold text-white mb-3">11. Indemnification</h2>
+                    <p class="text-slate-400 text-[15px] leading-relaxed mb-3">You agree to indemnify and hold harmless Kimusoft LLC, its officers, directors, employees, and agents from any claims, liabilities, damages, losses, and expenses (including reasonable attorney's fees) arising out of or in connection with your use of the App, your User Content, or your violation of these Terms.</p>
+                </div>
+
+                <div class="border-t border-border-dark"></div>
+
+                <div id="section-12" class="pt-2">
+                    <h2 class="text-lg font-semibold text-white mb-3">12. Governing Law</h2>
+                    <p class="text-slate-400 text-[15px] leading-relaxed mb-3">These Terms shall be governed by and construed in accordance with the laws of the State of Florida, without regard to its conflict of law provisions. Any disputes arising from these Terms or your use of the App shall be resolved in the state or federal courts located in Florida.</p>
+                </div>
+
+                <div class="border-t border-border-dark"></div>
+
+                <div id="section-13" class="pt-2">
+                    <h2 class="text-lg font-semibold text-white mb-3">13. Third-Party Services</h2>
+                    <p class="text-slate-400 text-[15px] leading-relaxed mb-3">The App integrates with third-party services including Google Sign-In, Apple Sign-In, Supabase, Firebase Cloud Messaging, Google Cloud Vision, and Stripe. Your use of these services is subject to their respective terms and privacy policies. We are not responsible for the practices or content of third-party services.</p>
+                </div>
+
+                <div class="border-t border-border-dark"></div>
+
+                <div id="section-14" class="pt-2">
+                    <h2 class="text-lg font-semibold text-white mb-3">14. Changes to These Terms</h2>
+                    <p class="text-slate-400 text-[15px] leading-relaxed mb-3">We may revise these Terms at any time. We will notify you of material changes by posting updated Terms within the App and updating the "Last Updated" date. Your continued use of the App after revised Terms are posted constitutes your acceptance of the changes. If you do not agree to the revised Terms, you must stop using the App.</p>
+                </div>
+
+                <div class="border-t border-border-dark"></div>
+
+                <div id="section-15" class="pt-2">
+                    <h2 class="text-lg font-semibold text-white mb-3">15. Termination</h2>
+                    <p class="text-slate-400 text-[15px] leading-relaxed mb-3">We reserve the right to suspend or terminate your access to the App at any time, with or without cause and with or without notice. Upon termination, your right to use the App ceases immediately. Sections 4.1, 7, 9, 10, 11, and 12 shall survive termination.</p>
+                </div>
+
+                <div class="border-t border-border-dark"></div>
+
+                <div id="section-16" class="pt-2">
+                    <h2 class="text-lg font-semibold text-white mb-3">16. Severability</h2>
+                    <p class="text-slate-400 text-[15px] leading-relaxed mb-3">If any provision of these Terms is found to be unenforceable or invalid, that provision shall be limited or eliminated to the minimum extent necessary so that the remaining provisions remain in full force and effect.</p>
+                </div>
+
+                <div class="border-t border-border-dark"></div>
+
+                <div id="section-17" class="pt-2">
+                    <h2 class="text-lg font-semibold text-white mb-3">17. Entire Agreement</h2>
+                    <p class="text-slate-400 text-[15px] leading-relaxed mb-3">These Terms, together with our Privacy Policy, constitute the entire agreement between you and Kimusoft LLC regarding your use of Fanager and supersede any prior agreements.</p>
+                </div>
+
+                <div class="border-t border-border-dark"></div>
+
+                <div id="section-18" class="pt-2">
+                    <h2 class="text-lg font-semibold text-white mb-3">18. Contact Us</h2>
+                    <p class="text-slate-400 text-[15px] leading-relaxed mb-3">If you have questions about these Terms, please contact us at:</p>
+                    <p class="text-slate-400 text-[15px] leading-relaxed mb-3">Kimusoft LLC<br>Email: <a href="mailto:support@kimusoft.io" class="text-blue-500 hover:underline">support@kimusoft.io</a></p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-footer-bg border-t border-border-dark py-8 px-6 text-center">
+        <p class="text-gray-600 text-xs">&copy; 2026 Kimusoft LLC. All rights reserved.</p>
     </footer>
 </body>
 </html>
