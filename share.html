@@ -19,63 +19,263 @@
   <meta name="twitter:image" content="https://fanager.app/images/og-banner.png" />
 
   <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
+    :root {
+      --bg: #0a1628;
+      --panel: rgba(17, 24, 39, 0.82);
+      --panel-border: rgba(148, 163, 184, 0.18);
+      --text: #f8fafc;
+      --muted: #94a3b8;
+      --accent: #3b82f6;
+      --accent-strong: #2563eb;
+      --shadow: 0 28px 80px rgba(0, 0, 0, 0.35);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
     body {
       font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-      background: #0A1628;
-      color: #fff;
+      background:
+        radial-gradient(circle at top, rgba(59, 130, 246, 0.22), transparent 34%),
+        linear-gradient(180deg, #10233c 0%, var(--bg) 42%, #06111f 100%);
+      color: var(--text);
       min-height: 100vh;
       display: flex;
-      flex-direction: column;
       align-items: center;
       justify-content: center;
       padding: 24px;
       text-align: center;
     }
-    .logo { width: 80px; height: 80px; margin-bottom: 24px; }
-    h1 { font-size: 24px; font-weight: 700; margin-bottom: 8px; }
-    .subtitle { color: #9CA3AF; font-size: 16px; margin-bottom: 32px; }
-    .store-buttons { display: flex; gap: 16px; margin-bottom: 32px; flex-wrap: wrap; justify-content: center; }
-    .store-btn {
-      display: inline-flex; align-items: center; gap: 8px;
-      background: #1F2937; color: #fff; text-decoration: none;
-      padding: 12px 24px; border-radius: 12px; font-size: 14px;
-      font-weight: 500; border: 1px solid #374151;
-      transition: background 0.2s;
+
+    .shell {
+      width: min(100%, 540px);
+      background: var(--panel);
+      border: 1px solid var(--panel-border);
+      border-radius: 28px;
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(18px);
+      padding: 32px 24px;
     }
-    .store-btn:hover { background: #374151; }
-    .qr-section { margin-top: 24px; }
-    .qr-label { color: #6B7280; font-size: 12px; margin-bottom: 8px; }
-    #qr-code { background: #fff; padding: 12px; border-radius: 8px; display: inline-block; }
+
+    .loading-state {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 18px;
+    }
+
+    .spinner {
+      width: 42px;
+      height: 42px;
+      border-radius: 999px;
+      border: 3px solid rgba(148, 163, 184, 0.25);
+      border-top-color: var(--accent);
+      animation: spin 0.8s linear infinite;
+    }
+
+    .loading-title {
+      font-size: 22px;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+    }
+
+    .loading-copy {
+      color: var(--muted);
+      font-size: 15px;
+      line-height: 1.5;
+      max-width: 320px;
+    }
+
+    .landing {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .logo {
+      width: 80px;
+      height: 80px;
+      border-radius: 24px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 24px;
+      background: linear-gradient(135deg, #60a5fa 0%, #2563eb 100%);
+      box-shadow: 0 20px 45px rgba(37, 99, 235, 0.35);
+      font-size: 36px;
+      font-weight: 800;
+    }
+
+    h1 {
+      font-size: clamp(28px, 4vw, 34px);
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      margin-bottom: 10px;
+    }
+
+    .subtitle {
+      color: var(--muted);
+      font-size: 16px;
+      line-height: 1.6;
+      margin-bottom: 14px;
+      max-width: 360px;
+    }
+
+    .helper-copy {
+      color: #cbd5e1;
+      font-size: 14px;
+      line-height: 1.6;
+      margin-bottom: 28px;
+      max-width: 360px;
+    }
+
     .open-app-btn {
-      display: inline-block; background: #3B82F6; color: #fff;
-      text-decoration: none; padding: 14px 32px; border-radius: 12px;
-      font-size: 16px; font-weight: 600; margin-bottom: 24px;
-      transition: background 0.2s;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 200px;
+      margin-bottom: 24px;
+      border-radius: 999px;
+      padding: 14px 22px;
+      background: linear-gradient(180deg, var(--accent) 0%, var(--accent-strong) 100%);
+      color: #fff;
+      font-size: 15px;
+      font-weight: 700;
+      text-decoration: none;
+      box-shadow: 0 16px 28px rgba(37, 99, 235, 0.28);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
     }
-    .open-app-btn:hover { background: #2563EB; }
+
+    .open-app-btn:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 18px 32px rgba(37, 99, 235, 0.32);
+    }
+
+    .store-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      gap: 16px;
+      width: 100%;
+    }
+
+    .store-badge {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 18px;
+      padding: 6px;
+      transition: transform 0.2s ease, box-shadow 0.2s ease, opacity 0.2s ease, background 0.2s ease;
+      opacity: 0.92;
+    }
+
+    .store-badge img {
+      display: block;
+      height: 56px;
+      width: auto;
+    }
+
+    .store-badge--primary {
+      background: rgba(59, 130, 246, 0.14);
+      box-shadow: 0 18px 32px rgba(37, 99, 235, 0.22);
+      opacity: 1;
+      transform: translateY(-1px) scale(1.02);
+    }
+
+    .store-badge--secondary {
+      opacity: 0.74;
+    }
+
+    .qr-section {
+      width: 100%;
+      margin-top: 32px;
+      padding-top: 24px;
+      border-top: 1px solid rgba(148, 163, 184, 0.14);
+    }
+
+    .qr-label {
+      color: var(--muted);
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      margin-bottom: 12px;
+    }
+
+    #qr-code {
+      display: inline-flex;
+      padding: 16px;
+      border-radius: 18px;
+      background: #fff;
+    }
+
+    #qr-code svg {
+      display: block;
+    }
+
+    [hidden] {
+      display: none !important;
+    }
+
+    @keyframes spin {
+      to {
+        transform: rotate(360deg);
+      }
+    }
+
+    @media (max-width: 640px) {
+      body {
+        padding: 16px;
+      }
+
+      .shell {
+        padding: 28px 20px;
+      }
+
+      .store-buttons {
+        flex-direction: column;
+        gap: 14px;
+      }
+
+      .store-badge img {
+        height: 54px;
+      }
+    }
   </style>
 </head>
 <body>
-  <div class="logo" style="background:#3B82F6;border-radius:20px;display:flex;align-items:center;justify-content:center;font-size:36px;font-weight:bold;">F</div>
+  <div class="shell" id="shell">
+    <section class="loading-state" id="loading-state" aria-live="polite">
+      <div class="spinner" aria-hidden="true"></div>
+      <p class="loading-title">Opening Fanager...</p>
+      <p class="loading-copy">If the app does not open, download it below.</p>
+    </section>
 
-  <h1>Check it out on Fanager!</h1>
-  <p class="subtitle">Manage and follow recreational sports leagues</p>
+    <main class="landing" id="landing-shell" hidden>
+      <div class="logo" aria-hidden="true">F</div>
+      <h1>Check it out on Fanager!</h1>
+      <p class="subtitle">Manage and follow recreational sports leagues</p>
+      <p class="helper-copy">If the app did not open automatically, download Fanager or try opening it again.</p>
 
-  <a id="open-app" class="open-app-btn" href="#">Open in App</a>
+      <a id="open-app" class="open-app-btn" href="#" hidden>Open in App</a>
 
-  <div class="store-buttons">
-    <a id="ios-store" class="store-btn" href="#" style="display:none;">
-      Download on the App Store
-    </a>
-    <a id="android-store" class="store-btn" href="#" style="display:none;">
-      Get it on Google Play
-    </a>
-  </div>
+      <div class="store-buttons">
+        <a id="ios-store" class="store-badge" href="#" target="_blank" rel="noopener noreferrer">
+          <img src="/images/badges/app-store-badge.svg" alt="Download on the App Store">
+        </a>
+        <a id="android-store" class="store-badge" href="#" target="_blank" rel="noopener noreferrer">
+          <img src="/images/badges/google-play-badge.png" alt="Get it on Google Play">
+        </a>
+      </div>
 
-  <div class="qr-section" id="qr-section" style="display:none;">
-    <p class="qr-label">Scan to download</p>
-    <div id="qr-code"></div>
+      <div class="qr-section" id="qr-section" hidden>
+        <p class="qr-label">Scan to download</p>
+        <div id="qr-code"></div>
+      </div>
+    </main>
   </div>
 
   <script src="https://cdn.jsdelivr.net/npm/qrcode-generator@1.4.4/qrcode.min.js"></script>
@@ -83,50 +283,123 @@
     (function() {
       var path = window.location.pathname;
       var fullUrl = 'https://fanager.app' + path;
+      var encodedPath = encodeURIComponent(path);
+      var appOpenUrl = 'leaguehq://open?path=' + encodedPath;
+      // Replace this marker with the real App Store ID before launch.
+      var iosStoreUrl = 'https://apps.apple.com/app/fanager/id_UPDATE_APP_STORE_ID';
+      var androidStoreUrl =
+        'https://play.google.com/store/apps/details?id=com.leaguemgr.league_mgr_app&referrer=' +
+        encodeURIComponent('path=' + path);
+      var fallbackDelayMs = 1200;
 
-      var iosStoreUrl = 'https://apps.apple.com/app/fanager/id_PLACEHOLDER';
-      var androidStoreUrl = 'https://play.google.com/store/apps/details?id=com.leaguemgr.league_mgr_app&referrer=' + encodeURIComponent('path=' + path);
-
-      document.getElementById('open-app').href = fullUrl;
+      var loadingState = document.getElementById('loading-state');
+      var landingShell = document.getElementById('landing-shell');
+      var openAppButton = document.getElementById('open-app');
+      var iosStoreButton = document.getElementById('ios-store');
+      var androidStoreButton = document.getElementById('android-store');
+      var qrSection = document.getElementById('qr-section');
+      var qrCode = document.getElementById('qr-code');
 
       var ua = navigator.userAgent || '';
       var isIOS = /iPhone|iPad|iPod/i.test(ua);
       var isAndroid = /Android/i.test(ua);
+      var isMobile = isIOS || isAndroid;
+      var didBackground = false;
+      var didRevealFallback = false;
+      var attemptStartedAt = Date.now();
 
-      if (isIOS) {
-        var btn = document.getElementById('ios-store');
-        btn.href = iosStoreUrl;
-        btn.style.display = 'inline-flex';
-      } else if (isAndroid) {
-        var btn = document.getElementById('android-store');
-        btn.href = androidStoreUrl;
-        btn.style.display = 'inline-flex';
-      } else {
-        var iosBtn = document.getElementById('ios-store');
-        iosBtn.href = iosStoreUrl;
-        iosBtn.style.display = 'inline-flex';
+      openAppButton.href = appOpenUrl;
+      iosStoreButton.href = iosStoreUrl;
+      androidStoreButton.href = androidStoreUrl;
 
-        var androidBtn = document.getElementById('android-store');
-        androidBtn.href = androidStoreUrl;
-        androidBtn.style.display = 'inline-flex';
+      function setBadgePriority() {
+        iosStoreButton.classList.remove('store-badge--primary', 'store-badge--secondary');
+        androidStoreButton.classList.remove('store-badge--primary', 'store-badge--secondary');
+
+        if (isIOS) {
+          iosStoreButton.classList.add('store-badge--primary');
+          androidStoreButton.classList.add('store-badge--secondary');
+          return;
+        }
+
+        if (isAndroid) {
+          androidStoreButton.classList.add('store-badge--primary');
+          iosStoreButton.classList.add('store-badge--secondary');
+        }
+      }
+
+      function renderQrCode() {
+        if (qrCode.hasChildNodes()) {
+          qrSection.hidden = false;
+          return;
+        }
 
         var qr = qrcode(0, 'M');
         qr.addData(fullUrl);
         qr.make();
-        document.getElementById('qr-code').innerHTML = qr.createSvgTag(4);
-        document.getElementById('qr-section').style.display = 'block';
+        qrCode.innerHTML = qr.createSvgTag(4);
+        qrSection.hidden = false;
       }
 
-      // iOS deferred deep link
-      if (isIOS) {
-        var storedPath = localStorage.getItem('fanager_deferred_path');
-        if (storedPath && storedPath === path) {
-          localStorage.removeItem('fanager_deferred_path');
-          window.location.href = 'https://fanager.app' + storedPath;
-        } else {
-          localStorage.setItem('fanager_deferred_path', path);
+      function revealFallback() {
+        if (didRevealFallback) {
+          return;
+        }
+
+        didRevealFallback = true;
+        loadingState.hidden = true;
+        landingShell.hidden = false;
+
+        if (isMobile) {
+          openAppButton.hidden = false;
+          return;
+        }
+
+        renderQrCode();
+      }
+
+      function revealFallbackAfterReturn() {
+        if (didRevealFallback) {
+          return;
+        }
+
+        if (Date.now() - attemptStartedAt >= fallbackDelayMs) {
+          revealFallback();
         }
       }
+
+      document.addEventListener('visibilitychange', function() {
+        if (document.visibilityState === 'hidden') {
+          didBackground = true;
+          return;
+        }
+
+        revealFallbackAfterReturn();
+      });
+
+      window.addEventListener('pagehide', function() {
+        didBackground = true;
+      });
+
+      window.addEventListener('blur', function() {
+        didBackground = true;
+      });
+
+      window.addEventListener('focus', revealFallbackAfterReturn);
+
+      setBadgePriority();
+
+      if (!isMobile) {
+        revealFallback();
+        return;
+      }
+
+      window.location.href = appOpenUrl;
+      window.setTimeout(function() {
+        if (!didBackground) {
+          revealFallback();
+        }
+      }, fallbackDelayMs);
     })();
   </script>
 </body>
