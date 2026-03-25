@@ -105,8 +105,14 @@
       margin-bottom: 24px;
       background: linear-gradient(135deg, #60a5fa 0%, #2563eb 100%);
       box-shadow: 0 20px 45px rgba(37, 99, 235, 0.35);
-      font-size: 36px;
-      font-weight: 800;
+      padding: 14px;
+    }
+
+    .logo img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
     }
 
     h1 {
@@ -243,19 +249,25 @@
       .store-badge img {
         height: 54px;
       }
+
+      .store-badge--primary {
+        order: -1;
+      }
     }
   </style>
 </head>
 <body>
   <div class="shell" id="shell">
-    <section class="loading-state" id="loading-state" aria-live="polite">
+    <section class="loading-state" id="loading-state">
       <div class="spinner" aria-hidden="true"></div>
       <p class="loading-title">Opening Fanager...</p>
       <p class="loading-copy">If the app does not open, download it below.</p>
     </section>
 
     <main class="landing" id="landing-shell" hidden>
-      <div class="logo" aria-hidden="true">F</div>
+      <div class="logo" aria-hidden="true">
+        <img src="/images/branding/fanager-mark-white.png" alt="">
+      </div>
       <h1>Check it out on Fanager!</h1>
       <p class="subtitle">Manage and follow recreational sports leagues</p>
       <p class="helper-copy">If the app did not open automatically, download Fanager or try opening it again.</p>
@@ -263,10 +275,10 @@
       <a id="open-app" class="open-app-btn" href="#" hidden>Open in App</a>
 
       <div class="store-buttons">
-        <a id="ios-store" class="store-badge" href="#" target="_blank" rel="noopener noreferrer">
+        <a id="ios-store" class="store-badge" href="#">
           <img src="/images/badges/app-store-badge.svg" alt="Download on the App Store">
         </a>
-        <a id="android-store" class="store-badge" href="#" target="_blank" rel="noopener noreferrer">
+        <a id="android-store" class="store-badge" href="#">
           <img src="/images/badges/google-play-badge.png" alt="Get it on Google Play">
         </a>
       </div>
@@ -278,9 +290,9 @@
     </main>
   </div>
 
-  <script src="https://cdn.jsdelivr.net/npm/qrcode-generator@1.4.4/qrcode.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/qrcode-generator@1.4.4/qrcode.min.js"></script>
   <script>
-    (function() {
+    window.addEventListener('DOMContentLoaded', function() {
       var path = window.location.pathname;
       var fullUrl = 'https://fanager.app' + path;
       var encodedPath = encodeURIComponent(path);
@@ -381,10 +393,6 @@
         didBackground = true;
       });
 
-      window.addEventListener('blur', function() {
-        didBackground = true;
-      });
-
       window.addEventListener('focus', revealFallbackAfterReturn);
 
       setBadgePriority();
@@ -400,7 +408,7 @@
           revealFallback();
         }
       }, fallbackDelayMs);
-    })();
+    });
   </script>
 </body>
 </html>
