@@ -52,7 +52,8 @@
       { "source": "/t/**", "destination": "/share.html" },
       { "source": "/s/**", "destination": "/share.html" },
       { "source": "/tr/**", "destination": "/share.html" },
-      { "source": "/m/**", "destination": "/share.html" }
+      { "source": "/m/**", "destination": "/share.html" },
+      { "source": "/c/**", "destination": "/join-community.html" }
     ]
   }
 }
