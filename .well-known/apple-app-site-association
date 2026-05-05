@@ -4,7 +4,7 @@
     "details": [
       {
         "appID": "U63TX4R3AN.com.leaguemgr.leagueMgrApp",
-        "paths": ["/l/*", "/t/*", "/s/*", "/tr/*", "/m/*", "/c/*"]
+        "paths": ["/l/*", "/t/*", "/s/*", "/tr/*", "/m/*", "/c/*", "/claim/*"]
       }
     ]
   }
