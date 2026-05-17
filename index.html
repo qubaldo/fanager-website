@@ -3,15 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fanager — Manage Your Recreational Soccer League</title>
-    <meta name="description" content="The all-in-one app for recreational soccer leagues. Create leagues, manage teams, collect payments, and track standings. Free on iOS and Android.">
-    <meta property="og:title" content="Fanager — Manage Your Recreational Soccer League">
-    <meta property="og:description" content="The all-in-one app for recreational soccer leagues. Create leagues, manage teams, collect payments, and track standings. Free on iOS and Android.">
+    <title>Fanager — Run &amp; Follow Your Recreational Soccer League</title>
+    <meta name="description" content="Run your rec soccer league or follow your favorite team. Auto schedules, Stripe fees, live scores, lineups, practices, and match predictions. Free on iOS — Android coming soon.">
+    <meta property="og:title" content="Fanager — Run &amp; Follow Your Recreational Soccer League">
+    <meta property="og:description" content="Run your rec soccer league or follow your favorite team. Auto schedules, Stripe fees, live scores, lineups, practices, and match predictions. Free on iOS — Android coming soon.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://fanager.app">
+    <meta property="og:image" content="https://fanager.app/images/og-banner.png">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Fanager — Manage Your Recreational Soccer League">
-    <meta name="twitter:description" content="The all-in-one app for recreational soccer leagues. Create leagues, manage teams, collect payments, and track standings.">
+    <meta name="twitter:title" content="Fanager — Run &amp; Follow Your Recreational Soccer League">
+    <meta name="twitter:description" content="Run your rec soccer league or follow your favorite team. Live scores, lineups, practices, predictions. Free on iOS — Android coming soon.">
+    <meta name="twitter:image" content="https://fanager.app/images/og-banner.png">
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
       tailwind.config = {
@@ -42,24 +44,28 @@
             <div class="flex items-center gap-6">
                 <a href="#features" class="text-slate-400 hover:text-white text-sm hidden sm:inline">Features</a>
                 <a href="#download" class="text-slate-400 hover:text-white text-sm hidden sm:inline">Download</a>
-                <span class="hidden lg:inline text-sm text-gray-500 italic">Coming soon to App Store &amp; Google Play</span>
-                <span class="lg:hidden text-sm text-gray-500 italic">Coming soon</span>
+                <a href="https://apps.apple.com/app/id6759442301" class="bg-white text-navy text-sm font-semibold px-4 py-2 rounded-full hover:bg-slate-200 transition-colors hover:no-underline">Get the app</a>
             </div>
         </nav>
     </header>
 
     <main>
-        <section class="min-h-screen flex items-center justify-center pt-20 pb-16 px-6 bg-gradient-to-b from-navy to-[#112240]">
-            <div class="max-w-6xl mx-auto flex flex-col lg:flex-row items-center gap-12 lg:gap-16">
-                <div class="text-center lg:text-left flex-1 animate-fade-up">
-                    <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight mb-6">Your League,<br>Your Way</h1>
-                    <p class="text-lg text-slate-400 max-w-lg mx-auto lg:mx-0 mb-8">The easiest way to run a rec league. The best way to follow one. No spreadsheets required.</p>
-                    <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-                        <span class="text-gray-500 italic text-sm">Coming soon to the App Store and Google Play</span>
+        <section class="min-h-screen flex items-center pt-24 pb-16 px-6 bg-gradient-to-b from-navy to-[#112240] overflow-hidden">
+            <div class="max-w-6xl mx-auto grid lg:grid-cols-2 gap-12 lg:gap-8 items-center w-full">
+                <div class="animate-fade-up">
+                    <span class="inline-block bg-cyan/10 border border-cyan/20 text-cyan text-xs font-semibold px-3 py-1 rounded-full mb-6">Now on the App Store</span>
+                    <h1 class="text-5xl sm:text-6xl lg:text-7xl font-bold leading-[1.05] tracking-tight mb-6">Run the whole<br>season from<br><span class="text-cyan">one app.</span></h1>
+                    <p class="text-lg text-slate-400 max-w-md mb-8">The easiest way to run a rec soccer league — and the best way to follow one. Schedules, fees, live scores, lineups, and predictions. No spreadsheets.</p>
+                    <div class="flex flex-col sm:flex-row sm:items-center gap-4">
+                        <a href="https://apps.apple.com/app/id6759442301" aria-label="Download Fanager on the App Store">
+                            <img src="/images/badges/app-store-badge.svg" alt="Download on the App Store" class="h-12 w-auto">
+                        </a>
+                        <span class="text-gray-500 italic text-sm">Google Play coming soon</span>
                     </div>
                 </div>
-                <div class="flex-1 flex justify-center animate-slide-up">
-                    <img src="/images/hero-featured.png" alt="Fanager app featuring leagues with isometric stadium backgrounds" class="w-80 rounded-[2rem] shadow-2xl shadow-blue-500/10">
+                <div class="flex justify-center lg:justify-end animate-slide-up relative">
+                    <div class="absolute w-72 h-72 rounded-full bg-blue-500/20 blur-3xl -z-0"></div>
+                    <img src="/images/screens/screen-my-leagues.png" alt="Fanager My Leagues screen showing followed leagues with live match cards" class="relative w-72 rounded-[2.5rem] border border-border-dark shadow-2xl shadow-blue-500/20">
                 </div>
             </div>
         </section>
@@ -72,7 +78,8 @@
                     <span class="text-slate-400 text-sm ml-1">to use</span>
                 </div>
                 <div>
-                    <span class="text-cyan font-bold text-lg">iOS + Android</span>
+                    <span class="text-cyan font-bold text-lg">iOS now</span>
+                    <span class="text-slate-400 text-sm ml-1">· Android soon</span>
                 </div>
             </div>
         </section>
@@ -81,27 +88,22 @@
         <section class="py-20 px-6">
             <div class="max-w-6xl mx-auto">
                 <h2 class="text-3xl sm:text-4xl font-bold text-center mb-12 reveal">Built for Everyone in Your League</h2>
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 reveal">
-                    <a href="#league-owners" class="block bg-card-dark border border-border-dark rounded-xl p-6 hover:border-blue-500/50 transition-colors group">
-                        <div class="w-10 h-10 bg-blue-500/10 rounded-lg flex items-center justify-center mb-4">
-                            <svg class="w-5 h-5 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
-                        </div>
-                        <h3 class="text-lg font-semibold text-blue-500 mb-2">For League Owners</h3>
-                        <p class="text-slate-400 text-sm">Create leagues, collect fees, manage schedules</p>
+                <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 reveal">
+                    <a href="#league-owners" class="block bg-card-dark border border-border-dark rounded-xl p-5 hover:border-blue-500/50 transition-colors">
+                        <h3 class="text-base font-semibold text-blue-500 mb-1">League Owners</h3>
+                        <p class="text-slate-400 text-sm">Create leagues, collect fees, run the schedule</p>
                     </a>
-                    <a href="#team-managers" class="block bg-card-dark border border-border-dark rounded-xl p-6 hover:border-green-500/50 transition-colors group">
-                        <div class="w-10 h-10 bg-green-500/10 rounded-lg flex items-center justify-center mb-4">
-                            <svg class="w-5 h-5 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
-                        </div>
-                        <h3 class="text-lg font-semibold text-green-500 mb-2">For Team Managers</h3>
-                        <p class="text-slate-400 text-sm">Manage rosters, pay fees, track performance</p>
+                    <a href="#team-managers" class="block bg-card-dark border border-border-dark rounded-xl p-5 hover:border-green-500/50 transition-colors">
+                        <h3 class="text-base font-semibold text-green-500 mb-1">Team Managers</h3>
+                        <p class="text-slate-400 text-sm">Rosters, lineups, practices, RSVPs</p>
                     </a>
-                    <a href="#fans" class="block bg-card-dark border border-border-dark rounded-xl p-6 hover:border-amber-500/50 transition-colors group">
-                        <div class="w-10 h-10 bg-amber-500/10 rounded-lg flex items-center justify-center mb-4">
-                            <svg class="w-5 h-5 text-amber-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/></svg>
-                        </div>
-                        <h3 class="text-lg font-semibold text-amber-500 mb-2">For Fans</h3>
-                        <p class="text-slate-400 text-sm">Follow teams, check scores, browse freely</p>
+                    <a href="#players" class="block bg-card-dark border border-border-dark rounded-xl p-5 hover:border-cyan/50 transition-colors">
+                        <h3 class="text-base font-semibold text-cyan mb-1">Players</h3>
+                        <p class="text-slate-400 text-sm">RSVP and see your starting lineup</p>
+                    </a>
+                    <a href="#fans" class="block bg-card-dark border border-border-dark rounded-xl p-5 hover:border-amber-500/50 transition-colors">
+                        <h3 class="text-base font-semibold text-amber-500 mb-1">Fans</h3>
+                        <p class="text-slate-400 text-sm">Follow teams, live scores, predictions</p>
                     </a>
                 </div>
             </div>
@@ -122,21 +124,21 @@
                         <p class="text-slate-400 leading-relaxed">Create round-robin and tournament schedules automatically. Configure game days, time slots, and blackout dates — Fanager handles the rest.</p>
                     </div>
                     <div class="flex-1 flex justify-center">
-                        <img src="/images/feature-schedule.png" alt="Auto-generated league schedule view" class="w-72 rounded-[2rem] shadow-xl">
+                        <img src="/images/screens/screen-schedule-rsvp.png" alt="Auto-generated match schedule with dated fixtures" class="w-72 rounded-[2rem] shadow-xl">
                     </div>
                 </div>
 
-                <!-- Feature 2: Payments (mockup left, text right) -->
+                <!-- Feature 2: Score Entry (mockup left, text right) -->
                 <div class="flex flex-col lg:flex-row-reverse items-center gap-12 reveal">
                     <div class="flex-1">
                         <div class="w-10 h-10 bg-green-500/10 rounded-lg flex items-center justify-center mb-4">
-                            <svg class="w-5 h-5 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z"/></svg>
+                            <svg class="w-5 h-5 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7l2 2 4-4"/></svg>
                         </div>
-                        <h3 class="text-2xl font-semibold mb-3">Built-in Payments</h3>
-                        <p class="text-slate-400 leading-relaxed">Collect team fees directly through the app with Stripe. Set flat-rate or per-player pricing, track payments, and issue refunds — all in one place.</p>
+                        <h3 class="text-2xl font-semibold mb-3">Fast Score Entry</h3>
+                        <p class="text-slate-400 leading-relaxed">Record results from a clean match sheet — final score, reschedule, or cancel — in a few taps. No spreadsheets, no group-chat box scores.</p>
                     </div>
                     <div class="flex-1 flex justify-center">
-                        <img src="/images/role-owners.png" alt="League owner dashboard with season stats" class="w-72 rounded-[2rem] shadow-xl">
+                        <img src="/images/screens/screen-score-entry.png" alt="Match score-entry sheet" class="w-72 rounded-[2rem] shadow-xl">
                     </div>
                 </div>
 
@@ -150,21 +152,21 @@
                         <p class="text-slate-400 leading-relaxed">Standings update automatically after every match result. Record scores, reschedule or cancel games on the fly — everyone sees the latest.</p>
                     </div>
                     <div class="flex-1 flex justify-center">
-                        <img src="/images/feature-standings.png" alt="Live standings table with team rankings" class="w-72 rounded-[2rem] shadow-xl">
+                        <img src="/images/screens/screen-standings.png" alt="Live standings with Goal Difference" class="w-72 rounded-[2rem] shadow-xl">
                     </div>
                 </div>
 
-                <!-- Feature 4: Tournament Brackets (mockup left, text right) -->
+                <!-- Feature 4: Match Predictions (mockup left, text right) -->
                 <div class="flex flex-col lg:flex-row-reverse items-center gap-12 reveal">
                     <div class="flex-1">
                         <div class="w-10 h-10 bg-amber-500/10 rounded-lg flex items-center justify-center mb-4">
                             <svg class="w-5 h-5 text-amber-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"/></svg>
                         </div>
-                        <h3 class="text-2xl font-semibold mb-3">Tournament Brackets</h3>
-                        <p class="text-slate-400 leading-relaxed">Run elimination-style tournaments with a visual bracket view. Track every match from first round to finals.</p>
+                        <h3 class="text-2xl font-semibold mb-3">Match Predictions</h3>
+                        <p class="text-slate-400 leading-relaxed">Fans lock in a scoreline before kickoff. When the final whistle blows, an animated reveal shows who called it right.</p>
                     </div>
                     <div class="flex-1 flex justify-center">
-                        <img src="/images/feature-brackets.png" alt="Tournament bracket view with semi-finals and finals" class="w-72 rounded-[2rem] shadow-xl">
+                        <img src="/images/screens/screen-game-prediction.png" alt="Match prediction with animated reveal" class="w-72 rounded-[2rem] shadow-xl">
                     </div>
                 </div>
             </div>
@@ -172,119 +174,100 @@
 
         <!-- Sticky Role Tab Switcher -->
         <div class="sticky top-[64px] z-40 bg-navy/90 backdrop-blur-md border-b border-border-dark py-3 px-6">
-            <div class="max-w-4xl mx-auto flex justify-center gap-2">
+            <div class="max-w-4xl mx-auto flex flex-wrap justify-center gap-2">
                 <button class="role-tab px-5 py-2 rounded-full text-sm font-semibold bg-blue-500 text-white transition-colors" data-target="league-owners" data-color="bg-blue-500">League Owners</button>
                 <button class="role-tab px-5 py-2 rounded-full text-sm font-semibold bg-gray-700 text-gray-400 transition-colors" data-target="team-managers" data-color="bg-green-500">Team Managers</button>
+                <button class="role-tab px-5 py-2 rounded-full text-sm font-semibold bg-gray-700 text-gray-400 transition-colors" data-target="players" data-color="bg-cyan">Players</button>
                 <button class="role-tab px-5 py-2 rounded-full text-sm font-semibold bg-gray-700 text-gray-400 transition-colors" data-target="fans" data-color="bg-amber-500">Fans</button>
             </div>
         </div>
 
-        <!-- League Owners Section -->
-        <section id="league-owners" class="role-section py-20 px-6">
-            <div class="max-w-4xl mx-auto">
-                <div class="flex items-center gap-3 mb-8 reveal">
-                    <div class="w-10 h-10 bg-blue-500/10 rounded-lg flex items-center justify-center">
-                        <svg class="w-5 h-5 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
-                    </div>
-                    <h2 class="text-2xl sm:text-3xl font-bold text-blue-500">For League Owners</h2>
+        <section id="league-owners" class="role-section act">
+            <div class="max-w-6xl mx-auto grid lg:grid-cols-2 gap-12 items-center reveal">
+                <div>
+                    <div class="act-num text-blue-500">I</div>
+                    <h2 class="text-3xl sm:text-4xl font-bold text-blue-500">League Owners</h2>
+                    <div class="act-rule bg-blue-500"></div>
+                    <p class="text-slate-300 text-lg mb-6">Stand up a season in minutes and let Fanager run the schedule, the money, and the table.</p>
+                    <ul class="space-y-3 text-slate-400">
+                        <li>• Step-by-step league &amp; season setup wizard</li>
+                        <li>• Auto-generate round-robin and tournament schedules with visual brackets</li>
+                        <li>• Game days, time slots, and blackout dates</li>
+                        <li>• Collect team fees via Stripe (flat rate or per-player)</li>
+                        <li>• Record scores; live standings with a Goal Difference column</li>
+                        <li>• Approve team join requests and manage the season</li>
+                    </ul>
                 </div>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    <div class="bg-card-dark border border-border-dark rounded-xl p-5 reveal">
-                        <h3 class="text-white font-semibold mb-2">League & Season Setup</h3>
-                        <p class="text-slate-400 text-sm">Step-by-step wizard to create leagues and seasons. Configure game days, time slots, and blackout dates with ease.</p>
-                    </div>
-                    <div class="bg-card-dark border border-border-dark rounded-xl p-5 reveal">
-                        <h3 class="text-white font-semibold mb-2">Schedule Generation</h3>
-                        <p class="text-slate-400 text-sm">Auto-generate round-robin and tournament schedules. Fanager balances matchups and respects your availability constraints.</p>
-                    </div>
-                    <div class="bg-card-dark border border-border-dark rounded-xl p-5 reveal">
-                        <h3 class="text-white font-semibold mb-2">Payments & Billing</h3>
-                        <p class="text-slate-400 text-sm">Stripe integration for collecting fees. Set flat rate or per-player pricing, track payment status, and issue refunds.</p>
-                    </div>
-                    <div class="bg-card-dark border border-border-dark rounded-xl p-5 reveal">
-                        <h3 class="text-white font-semibold mb-2">Match Management</h3>
-                        <p class="text-slate-400 text-sm">Record scores, reschedule or cancel matches, and watch live standings auto-update across the league.</p>
-                    </div>
-                    <div class="bg-card-dark border border-border-dark rounded-xl p-5 reveal">
-                        <h3 class="text-white font-semibold mb-2">Team Invitations</h3>
-                        <p class="text-slate-400 text-sm">Invite teams to your season, approve join requests, and assign team managers via email.</p>
-                    </div>
-                    <div class="bg-card-dark border border-border-dark rounded-xl p-5 reveal">
-                        <h3 class="text-white font-semibold mb-2">Cross-League Dashboard</h3>
-                        <p class="text-slate-400 text-sm">See all your leagues' matches, scores, and action items in one unified dashboard.</p>
-                    </div>
-                    <div class="bg-card-dark border border-border-dark rounded-xl p-5 reveal">
-                        <h3 class="text-white font-semibold mb-2">Tournament Brackets</h3>
-                        <p class="text-slate-400 text-sm">Visual bracket view for elimination-style tournaments. Track every match from first round to finals.</p>
-                    </div>
-                </div>
-                <!-- Device Mockup Placeholder -->
-                <div class="flex justify-center mt-12 reveal">
-                    <img src="/images/role-owners.png" alt="League owner view with live matches and action items" class="w-72 rounded-[2rem] shadow-xl">
+                <div class="flex justify-center gap-4">
+                    <img src="/images/screens/screen-create-league.png" alt="Fanager create-league setup wizard" class="w-56 shot shot-blue">
+                    <img src="/images/screens/screen-standings.png" alt="League standings table with Goal Difference column" class="w-56 shot shot-blue lg:mt-12">
                 </div>
             </div>
         </section>
 
-        <!-- Team Managers Section -->
-        <section id="team-managers" class="role-section py-20 px-6 bg-[#0d1b30]">
-            <div class="max-w-4xl mx-auto">
-                <div class="flex items-center gap-3 mb-8 reveal">
-                    <div class="w-10 h-10 bg-green-500/10 rounded-lg flex items-center justify-center">
-                        <svg class="w-5 h-5 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
-                    </div>
-                    <h2 class="text-2xl sm:text-3xl font-bold text-green-500">For Team Managers</h2>
+        <section id="team-managers" class="role-section act bg-[#0d1b30]">
+            <div class="max-w-6xl mx-auto grid lg:grid-cols-2 gap-12 items-center reveal">
+                <div class="flex justify-center gap-4 order-2 lg:order-1">
+                    <img src="/images/screens/screen-team-lineup.png" alt="Lineup builder with players on a pitch and a captain" class="w-56 shot shot-green">
+                    <img src="/images/screens/screen-schedule-rsvp.png" alt="Recurring practice schedule with player RSVPs" class="w-56 shot shot-green lg:mt-12">
                 </div>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    <div class="bg-card-dark border border-border-dark rounded-xl p-5 reveal">
-                        <h3 class="text-white font-semibold mb-2">Team & Roster Management</h3>
-                        <p class="text-slate-400 text-sm">Create your team, upload a custom logo, and manage your player roster all in one place.</p>
-                    </div>
-                    <div class="bg-card-dark border border-border-dark rounded-xl p-5 reveal">
-                        <h3 class="text-white font-semibold mb-2">Season Registration</h3>
-                        <p class="text-slate-400 text-sm">Request to join league seasons and pay registration fees directly in the app.</p>
-                    </div>
-                    <div class="bg-card-dark border border-border-dark rounded-xl p-5 reveal">
-                        <h3 class="text-white font-semibold mb-2">Performance Tracking</h3>
-                        <p class="text-slate-400 text-sm">View match history, league standings, and team stats to track your progress through the season.</p>
-                    </div>
-                    <div class="bg-card-dark border border-border-dark rounded-xl p-5 reveal">
-                        <h3 class="text-white font-semibold mb-2">Player Invitations</h3>
-                        <p class="text-slate-400 text-sm">Invite players to your team roster and manage your squad before the season starts.</p>
-                    </div>
+                <div class="order-1 lg:order-2">
+                    <div class="act-num text-green-500">II</div>
+                    <h2 class="text-3xl sm:text-4xl font-bold text-green-500">Team Managers</h2>
+                    <div class="act-rule bg-green-500"></div>
+                    <p class="text-slate-300 text-lg mb-6">Run your squad end to end — roster, lineups, practices, and RSVPs in one place.</p>
+                    <ul class="space-y-3 text-slate-400">
+                        <li>• Roster management; edit player names &amp; jerseys with duplicate-number protection</li>
+                        <li>• Upload a custom team logo</li>
+                        <li>• Lineups builder — up to 10 lineups per team, pick captains, assign to any match in a tap</li>
+                        <li>• Schedule recurring practices; track per-player RSVPs</li>
+                        <li>• See who's Going / Maybe / Not Going / no-reply (Match RSVP)</li>
+                        <li>• Request to join seasons, pay fees in-app</li>
+                        <li>• Next Match, Last 5, and full match history</li>
+                        <li>• Hand a team off to a new manager by email or 6-digit claim code</li>
+                    </ul>
                 </div>
-                <!-- Device Mockup Placeholder -->
-                <div class="flex justify-center mt-12 reveal">
-                    <img src="/images/role-managers.png" alt="Team management view" class="w-72 rounded-[2rem] shadow-xl">
+            </div>
+        </section>
+
+        <section id="players" class="role-section act">
+            <div class="max-w-6xl mx-auto grid lg:grid-cols-2 gap-12 items-center reveal">
+                <div>
+                    <div class="act-num text-cyan">III</div>
+                    <h2 class="text-3xl sm:text-4xl font-bold text-cyan">Players</h2>
+                    <div class="act-rule bg-cyan"></div>
+                    <p class="text-slate-300 text-lg mb-6">Know where you stand for every match and practice — without the group-chat noise.</p>
+                    <ul class="space-y-3 text-slate-400">
+                        <li>• RSVP every match and practice in one tap</li>
+                        <li>• See your starting lineup published 30 minutes before kickoff</li>
+                        <li>• Get notified when your lineup is set for a match</li>
+                    </ul>
+                </div>
+                <div class="flex justify-center">
+                    <img src="/images/screens/screen-schedule-rsvp.png" alt="Player schedule with match and practice RSVP controls" class="w-60 shot shot-cyan">
                 </div>
             </div>
         </section>
 
         <!-- Fans Section -->
-        <section id="fans" class="role-section py-20 px-6">
-            <div class="max-w-4xl mx-auto">
-                <div class="flex items-center gap-3 mb-8 reveal">
-                    <div class="w-10 h-10 bg-amber-500/10 rounded-lg flex items-center justify-center">
-                        <svg class="w-5 h-5 text-amber-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/></svg>
-                    </div>
-                    <h2 class="text-2xl sm:text-3xl font-bold text-amber-500">For Fans</h2>
+        <section id="fans" class="role-section act bg-[#0d1b30]">
+            <div class="max-w-6xl mx-auto grid lg:grid-cols-2 gap-12 items-center reveal">
+                <div class="flex justify-center gap-4 order-2 lg:order-1">
+                    <img src="/images/screens/screen-following.png" alt="Following tab with favorite teams and leagues" class="w-56 shot shot-amber">
+                    <img src="/images/screens/screen-game-prediction.png" alt="Match prediction with animated result reveal" class="w-56 shot shot-amber lg:mt-12">
                 </div>
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-                    <div class="bg-card-dark border border-border-dark rounded-xl p-5 reveal">
-                        <h3 class="text-white font-semibold mb-2">Guest Browsing</h3>
-                        <p class="text-slate-400 text-sm">Explore leagues, teams, and standings without creating an account. Jump right in.</p>
-                    </div>
-                    <div class="bg-card-dark border border-border-dark rounded-xl p-5 reveal">
-                        <h3 class="text-white font-semibold mb-2">Follow & Favorites</h3>
-                        <p class="text-slate-400 text-sm">Follow your favorite teams and leagues for quick access and updates on every match.</p>
-                    </div>
-                    <div class="bg-card-dark border border-border-dark rounded-xl p-5 reveal">
-                        <h3 class="text-white font-semibold mb-2">Live Scores</h3>
-                        <p class="text-slate-400 text-sm">Check schedules, scores, and results anytime. Stay up to date on every game.</p>
-                    </div>
-                </div>
-                <!-- Device Mockup Placeholder -->
-                <div class="flex justify-center mt-12 reveal">
-                    <img src="/images/role-fans.png" alt="Following tab showing favorite teams" class="w-72 rounded-[2rem] shadow-xl">
+                <div class="order-1 lg:order-2">
+                    <div class="act-num text-amber-500">IV</div>
+                    <h2 class="text-3xl sm:text-4xl font-bold text-amber-500">Fans</h2>
+                    <div class="act-rule bg-amber-500"></div>
+                    <p class="text-slate-300 text-lg mb-6">Follow every team you care about and call the result before kickoff.</p>
+                    <ul class="space-y-3 text-slate-400">
+                        <li>• Browse leagues, teams, and standings without an account</li>
+                        <li>• Follow your favorite teams and leagues</li>
+                        <li>• Live scores and standings on match days</li>
+                        <li>• Lock in match Predictions before kickoff, with an animated reveal at full time</li>
+                        <li>• Push notifications for updates on teams you follow</li>
+                    </ul>
                 </div>
             </div>
         </section>
@@ -330,7 +313,7 @@
                         <div class="w-16 h-16 bg-green-500/10 rounded-2xl flex items-center justify-center mb-4">
                             <svg class="w-8 h-8 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
                         </div>
-                        <h3 class="text-lg font-semibold mb-2">Invite teams</h3>
+                        <h3 class="text-lg font-semibold mb-2">Invite &amp; create teams</h3>
                         <p class="text-slate-400 text-sm">Teams join your season, pay fees, and set up their rosters.</p>
                     </div>
                     <div class="hidden md:flex items-center pt-8">
@@ -372,6 +355,15 @@
                     </div>
                     <div class="faq-item border border-border-dark rounded-xl overflow-hidden">
                         <button class="faq-toggle w-full text-left px-6 py-4 flex items-center justify-between hover:bg-card-dark/50 transition-colors" onclick="toggleFaq(this)">
+                            <span class="font-semibold">Can I build lineups and schedule practices?</span>
+                            <svg class="w-5 h-5 text-slate-400 transition-transform duration-300 faq-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                        </button>
+                        <div class="faq-answer max-h-0 overflow-hidden transition-all duration-300">
+                            <p class="px-6 pb-4 text-slate-400 text-sm leading-relaxed">Yes. Team managers can build up to 10 lineups per team, pick captains, and assign one to any match. You can also schedule recurring practices and collect RSVPs from players for both matches and practices.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item border border-border-dark rounded-xl overflow-hidden">
+                        <button class="faq-toggle w-full text-left px-6 py-4 flex items-center justify-between hover:bg-card-dark/50 transition-colors" onclick="toggleFaq(this)">
                             <span class="font-semibold">How do payments work?</span>
                             <svg class="w-5 h-5 text-slate-400 transition-transform duration-300 faq-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
                         </button>
@@ -403,7 +395,7 @@
                             <svg class="w-5 h-5 text-slate-400 transition-transform duration-300 faq-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
                         </button>
                         <div class="faq-answer max-h-0 overflow-hidden transition-all duration-300">
-                            <p class="px-6 pb-4 text-slate-400 text-sm leading-relaxed">Download Fanager from the App Store or Google Play. You can browse as a guest immediately, or create an account with Apple, Google, or email to start your first league.</p>
+                            <p class="px-6 pb-4 text-slate-400 text-sm leading-relaxed">Download Fanager from the App Store (Android coming soon). You can browse as a guest immediately, or create an account with Apple, Google, or email to start your first league.</p>
                         </div>
                     </div>
                 </div>
@@ -418,10 +410,11 @@
           "mainEntity": [
             {"@type": "Question", "name": "Is Fanager free?", "acceptedAnswer": {"@type": "Answer", "text": "Yes, Fanager is completely free to use. League owners can optionally collect team fees through built-in Stripe payments, but using the app itself costs nothing."}},
             {"@type": "Question", "name": "What sports does Fanager support?", "acceptedAnswer": {"@type": "Answer", "text": "Fanager is currently focused on recreational soccer (futbol) leagues. Support for additional sports may be added in the future."}},
-            {"@type": "Question", "name": "How do payments work?", "acceptedAnswer": {"@type": "Answer", "text": "League owners connect their Stripe account and set per-season fees. Team managers pay directly in the app. League owners can track payments, issue refunds, and manage billing."}},
-            {"@type": "Question", "name": "Do I need an account to browse?", "acceptedAnswer": {"@type": "Answer", "text": "No. Guests can browse all leagues, teams, and standings without creating an account."}},
-            {"@type": "Question", "name": "Is my data safe?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Fanager includes automatic content moderation, profanity filtering, image moderation, and user reporting and blocking."}},
-            {"@type": "Question", "name": "How do I get started?", "acceptedAnswer": {"@type": "Answer", "text": "Download Fanager from the App Store or Google Play. You can browse as a guest immediately, or create an account with Apple, Google, or email to start your first league."}}
+            {"@type": "Question", "name": "Can I build lineups and schedule practices?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Team managers can build up to 10 lineups per team, pick captains, and assign one to any match. You can also schedule recurring practices and collect RSVPs from players for both matches and practices."}},
+            {"@type": "Question", "name": "How do payments work?", "acceptedAnswer": {"@type": "Answer", "text": "League owners connect their Stripe account and set per-season fees — either a flat rate or per-player pricing. Team managers pay directly in the app. League owners can track payments, issue refunds, and manage billing for each season."}},
+            {"@type": "Question", "name": "Do I need an account to browse?", "acceptedAnswer": {"@type": "Answer", "text": "No. Guests can browse all leagues, teams, and standings without creating an account. You only need to sign up to follow teams, create leagues, or manage a team."}},
+            {"@type": "Question", "name": "Is my data safe?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Fanager includes automatic content moderation, profanity filtering, image moderation, and user reporting and blocking. See our Privacy Policy for full details."}},
+            {"@type": "Question", "name": "How do I get started?", "acceptedAnswer": {"@type": "Answer", "text": "Download Fanager from the App Store (Android coming soon). You can browse as a guest immediately, or create an account with Apple, Google, or email to start your first league."}}
           ]
         }
         </script>
@@ -430,9 +423,12 @@
         <section id="download" class="py-20 px-6 bg-gradient-to-b from-navy to-[#112240]">
             <div class="max-w-3xl mx-auto text-center reveal">
                 <h2 class="text-3xl sm:text-4xl font-bold mb-4">Ready to Run Your League?</h2>
-                <p class="text-slate-400 mb-8">Download Fanager for free on iOS and Android.</p>
-                <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                    <span class="text-gray-500 italic text-sm">Coming soon to the App Store and Google Play</span>
+                <p class="text-slate-400 mb-8">Download Fanager free on iOS. Android coming soon.</p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+                    <a href="https://apps.apple.com/app/id6759442301" aria-label="Download Fanager on the App Store">
+                        <img src="/images/badges/app-store-badge.svg" alt="Download on the App Store" class="h-12 w-auto">
+                    </a>
+                    <span class="text-gray-500 italic text-sm">Google Play coming soon</span>
                 </div>
             </div>
         </section>
@@ -452,6 +448,15 @@
 
     <style>
         #league-owners, #team-managers, #fans { scroll-margin-top: 140px; }
+        #players { scroll-margin-top: 140px; }
+        .act { padding: 6rem 1.5rem; }
+        .act-num { font-size: 5rem; font-weight: 800; line-height: 1; opacity: 0.12; }
+        .act-rule { width: 56px; height: 4px; border-radius: 999px; margin: 0.75rem 0 1.25rem; }
+        .shot { border-radius: 2rem; border: 1px solid #1F2937; }
+        .shot-blue   { box-shadow: 0 25px 60px -15px rgba(59,130,246,0.35); }
+        .shot-green  { box-shadow: 0 25px 60px -15px rgba(34,197,94,0.35); }
+        .shot-cyan   { box-shadow: 0 25px 60px -15px rgba(6,182,212,0.35); }
+        .shot-amber  { box-shadow: 0 25px 60px -15px rgba(245,158,11,0.35); }
         @keyframes fade-up { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
         @keyframes slide-up { from { opacity: 0; transform: translateY(40px); } to { opacity: 1; transform: translateY(0); } }
         .animate-fade-up { animation: fade-up 0.6s ease-out both; }
@@ -506,7 +511,7 @@
         // Role tab switcher
         const tabs = document.querySelectorAll('.role-tab');
         const sections = document.querySelectorAll('.role-section');
-        const allColors = ['bg-blue-500', 'bg-green-500', 'bg-amber-500'];
+        const allColors = ['bg-blue-500', 'bg-green-500', 'bg-cyan', 'bg-amber-500'];
 
         function setActiveTab(id) {
             tabs.forEach(tab => {
