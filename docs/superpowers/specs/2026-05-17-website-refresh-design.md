@@ -64,7 +64,7 @@ stays (social card).
 | 2 | Stat strip | Keep — Free · iOS now · Android soon | — |
 | 3 | Act I — League Owners (blue) | Keep+ — setup wizard, auto schedules, Stripe fees, live standings + Goal Difference, brackets, join requests | 08 Create League, 03 Standings |
 | 4 | Act II — Team Managers (green) | Expanded — roster + jerseys, Lineups builder (up to 10, captains), recurring Practices + RSVP, team handoff by email/code, score entry | 04 Team Lineup, 02 Score Entry |
-| 5 | Act III — Players (cyan) | New section — RSVP matches & practices, see starting XI 30 min pre-kickoff, notified when lineup is set | 05 Schedule & RSVP |
+| 5 | Act III — Players (cyan) | New section — RSVP matches & practices, see starting lineup 30 min pre-kickoff, notified when lineup is set | 05 Schedule & RSVP |
 | 6 | Act IV — Fans (amber) | Expanded — browse free, follow, live scores, Predictions with reveal, push | 07 Following, 06 Game Prediction |
 | 7 | Platform strip | Keep — sign-in, push, moderation, profanity, reporting, blocking, account deletion, free | — |
 | 8 | How it works | Keep — 3 steps | — |
@@ -82,8 +82,10 @@ Feature copy derives from three durable sources, in priority order:
    backed by `league-management/database/practice_series.go` +
    migration `042_practice_schedules.sql` + Flutter
    `lib/core/models/practice.dart` `rrule`; the
-   `lineup_assigned_to_game` push is in
-   `league-management/database/team_members.go` and `core/core.go`).
+   `lineup_assigned_to_game` push: audience/interface in
+   `league-management/database/team_members.go` + `core/core.go`,
+   actual send in `api_lineup_binding.go`, `notification_service.go`,
+   and `events.go`).
 3. The approved App Store description, pasted verbatim below so the
    implementer needs no prior-session context.
 
