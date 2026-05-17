@@ -114,13 +114,14 @@ Replace it with:
     <meta name="twitter:image" content="https://fanager.app/images/og-banner.png">
 ```
 
-- [ ] **Step 2: Verify no "iOS and Android" claim and no stray "Coming soon" remain in `<head>`**
+- [ ] **Step 2: Verify the old "available on Android" claim is gone from `<head>`**
 
-Run:
+The new copy intentionally contains the phrase "Android coming soon", so do NOT grep for a bare "coming soon" — grep only for the OLD available-now claims:
+
 ```bash
-sed -n '1,40p' index.html | grep -nEi "iOS and Android|Coming soon" || echo "CLEAN"
+sed -n '1,40p' index.html | grep -nEi "Free on iOS and Android|Coming soon to (the )?App Store" || echo "CLEAN"
 ```
-Expected: `CLEAN`.
+Expected: `CLEAN` (the only Android mention left in the head is the new "Android coming soon" wording, which is correct and must NOT be flagged).
 
 - [ ] **Step 3: Commit**
 
@@ -505,13 +506,15 @@ Find the entire `<section id="fans" class="role-section py-20 px-6">` … `</sec
 
 - [ ] **Step 2: Verify**
 
-Run:
+Scope the old-image check to the Fans section ONLY — `role-owners.png` legitimately still exists elsewhere (the Key-Features showcase) until Task 12; a whole-file grep here would false-fail.
+
 ```bash
 grep -n "screen-following.png\|screen-game-prediction.png" index.html
-grep -nE "role-fans\.png|role-owners\.png|role-managers\.png" index.html || echo "NO OLD ROLE IMAGES REFERENCED"
+# slice just the #fans section and confirm no old role image inside it:
+awk '/<section id="fans"/,/<\/section>/' index.html | grep -E "role-fans\.png|role-owners\.png|role-managers\.png" && echo "OLD IMG STILL IN FANS — FIX" || echo "FANS SECTION CLEAN"
 open index.html
 ```
-Expected: both new screenshots referenced; `NO OLD ROLE IMAGES REFERENCED`; amber act renders correctly.
+Expected: both new screenshots referenced; `FANS SECTION CLEAN`; amber act renders correctly. (The authoritative whole-file old-image gate is Task 12 Step 3, after the showcase images are repointed.)
 
 - [ ] **Step 3: Commit**
 
@@ -597,7 +600,35 @@ git commit -m "nav: extend sticky audience switcher to 4 tabs (add Players)"
 
 - [ ] **Step 1: Update the 3 role-highlight cards to 4 and fix anchors**
 
-Find the `<div class="grid grid-cols-1 md:grid-cols-3 gap-6 reveal">` inside the "Built for Everyone in Your League" section (the 3 `<a href="#...">` cards). Replace that grid `<div>`…`</div>` with a 4-card grid:
+Find this EXACT block (the full grid `<div>` with its three `<a>` cards and the grid's closing `</div>` — copy it verbatim as the match anchor so there is no ambiguity about which nested `</div>` ends the grid):
+
+```html
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 reveal">
+                    <a href="#league-owners" class="block bg-card-dark border border-border-dark rounded-xl p-6 hover:border-blue-500/50 transition-colors group">
+                        <div class="w-10 h-10 bg-blue-500/10 rounded-lg flex items-center justify-center mb-4">
+                            <svg class="w-5 h-5 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+                        </div>
+                        <h3 class="text-lg font-semibold text-blue-500 mb-2">For League Owners</h3>
+                        <p class="text-slate-400 text-sm">Create leagues, collect fees, manage schedules</p>
+                    </a>
+                    <a href="#team-managers" class="block bg-card-dark border border-border-dark rounded-xl p-6 hover:border-green-500/50 transition-colors group">
+                        <div class="w-10 h-10 bg-green-500/10 rounded-lg flex items-center justify-center mb-4">
+                            <svg class="w-5 h-5 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+                        </div>
+                        <h3 class="text-lg font-semibold text-green-500 mb-2">For Team Managers</h3>
+                        <p class="text-slate-400 text-sm">Manage rosters, pay fees, track performance</p>
+                    </a>
+                    <a href="#fans" class="block bg-card-dark border border-border-dark rounded-xl p-6 hover:border-amber-500/50 transition-colors group">
+                        <div class="w-10 h-10 bg-amber-500/10 rounded-lg flex items-center justify-center mb-4">
+                            <svg class="w-5 h-5 text-amber-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/></svg>
+                        </div>
+                        <h3 class="text-lg font-semibold text-amber-500 mb-2">For Fans</h3>
+                        <p class="text-slate-400 text-sm">Follow teams, check scores, browse freely</p>
+                    </a>
+                </div>
+```
+
+Replace that entire block with this 4-card grid:
 
 ```html
                 <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 reveal">
@@ -681,14 +712,17 @@ Replace with:
                             <p class="px-6 pb-4 text-slate-400 text-sm leading-relaxed">Download Fanager from the App Store (Android coming soon). You can browse as a guest immediately, or create an account with Apple, Google, or email to start your first league.</p>
 ```
 
-- [ ] **Step 3: Verify there are exactly 7 FAQ items and no Android-available wording**
+- [ ] **Step 3: Verify exactly 7 visible FAQ items and the Q6 answer was revised**
 
-Run:
+Scope the Android-wording check to the **visible accordion** (`#faq-list`) only — the JSON-LD `<script>` still contains the old "App Store or Google Play" string until Task 14, so a whole-file grep here would false-fail. That's expected and is fixed in Task 14; the whole-file sweep is Task 16.
+
 ```bash
 grep -c 'class="faq-item' index.html
-grep -nEi "App Store or Google Play" index.html || echo "NO ANDROID-AVAILABLE FAQ TEXT"
+# Slice ONLY the visible accordion: from #faq-list up to (not including) the
+# "FAQPage JSON-LD" comment that precedes the JSON-LD <script>.
+awk '/id="faq-list"/{f=1} /FAQPage JSON-LD/{f=0} f' index.html | grep -i "App Store or Google Play" && echo "OLD Q6 STILL VISIBLE — FIX" || echo "VISIBLE FAQ CLEAN"
 ```
-Expected: count is `7`; `NO ANDROID-AVAILABLE FAQ TEXT`.
+Expected: count is `7`; `VISIBLE FAQ CLEAN`. (The `awk` window starts at `id="faq-list"` and closes at the `<!-- FAQPage JSON-LD ... -->` comment, so it covers the visible accordion only — the JSON-LD block, still carrying the old wording until Task 14, is deliberately excluded.)
 
 - [ ] **Step 4: Commit**
 
@@ -704,9 +738,19 @@ git commit -m "content: FAQ — add lineups/practices Q, iOS-only get-started an
 **Files:**
 - Modify: `index.html` FAQPage JSON-LD `<script type="application/ld+json">` (lines ~414–427)
 
-- [ ] **Step 1: Replace the entire JSON-LD script body**
+> **Spec requirement (lines 184-185):** the JSON-LD answer text must match
+> the **visible accordion answers verbatim**. The current visible answers for
+> Q3/Q4/Q5 are LONGER than the old shortened JSON-LD answers, and Task 13 does
+> NOT shorten the visible answers — so the JSON-LD below uses the full visible
+> strings (Q5's `<a>Privacy Policy</a>` becomes the plain text "Privacy
+> Policy"). Do not re-shorten them.
 
-Find the `<script type="application/ld+json">` … `</script>` containing `"@type": "FAQPage"` and replace its inner JSON with exactly these 7 entities (answer text must match the visible accordion verbatim):
+- [ ] **Step 1: Replace the ENTIRE JSON-LD `<script>` block**
+
+Locate the full element from `<script type="application/ld+json">` through its
+matching `</script>` (the one whose body contains `"@type": "FAQPage"`) and
+replace the **whole element, opening and closing tags included**, with exactly
+this block (do not nest or keep the old tags):
 
 ```html
         <script type="application/ld+json">
@@ -717,28 +761,60 @@ Find the `<script type="application/ld+json">` … `</script>` containing `"@typ
             {"@type": "Question", "name": "Is Fanager free?", "acceptedAnswer": {"@type": "Answer", "text": "Yes, Fanager is completely free to use. League owners can optionally collect team fees through built-in Stripe payments, but using the app itself costs nothing."}},
             {"@type": "Question", "name": "What sports does Fanager support?", "acceptedAnswer": {"@type": "Answer", "text": "Fanager is currently focused on recreational soccer (futbol) leagues. Support for additional sports may be added in the future."}},
             {"@type": "Question", "name": "Can I build lineups and schedule practices?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Team managers can build up to 10 lineups per team, pick captains, and assign one to any match. You can also schedule recurring practices and collect RSVPs from players for both matches and practices."}},
-            {"@type": "Question", "name": "How do payments work?", "acceptedAnswer": {"@type": "Answer", "text": "League owners connect their Stripe account and set per-season fees. Team managers pay directly in the app. League owners can track payments, issue refunds, and manage billing."}},
-            {"@type": "Question", "name": "Do I need an account to browse?", "acceptedAnswer": {"@type": "Answer", "text": "No. Guests can browse all leagues, teams, and standings without creating an account."}},
-            {"@type": "Question", "name": "Is my data safe?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Fanager includes automatic content moderation, profanity filtering, image moderation, and user reporting and blocking."}},
+            {"@type": "Question", "name": "How do payments work?", "acceptedAnswer": {"@type": "Answer", "text": "League owners connect their Stripe account and set per-season fees — either a flat rate or per-player pricing. Team managers pay directly in the app. League owners can track payments, issue refunds, and manage billing for each season."}},
+            {"@type": "Question", "name": "Do I need an account to browse?", "acceptedAnswer": {"@type": "Answer", "text": "No. Guests can browse all leagues, teams, and standings without creating an account. You only need to sign up to follow teams, create leagues, or manage a team."}},
+            {"@type": "Question", "name": "Is my data safe?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Fanager includes automatic content moderation, profanity filtering, image moderation, and user reporting and blocking. See our Privacy Policy for full details."}},
             {"@type": "Question", "name": "How do I get started?", "acceptedAnswer": {"@type": "Answer", "text": "Download Fanager from the App Store (Android coming soon). You can browse as a guest immediately, or create an account with Apple, Google, or email to start your first league."}}
           ]
         }
         </script>
 ```
 
-- [ ] **Step 2: Validate the JSON-LD parses and has 7 entities**
+Note the em dash `—` in the payments answer and the literal phrase "See our
+Privacy Policy for full details." in the data answer — these are taken verbatim
+from the current visible answers (`index.html` "How do payments work?" and "Is
+my data safe?") so the two stay in sync.
+
+- [ ] **Step 2: Validate the JSON-LD parses, has 7 entities, and exactly one script block**
 
 Run:
 ```bash
 python3 - <<'PY'
 import re, json, pathlib
 html = pathlib.Path("index.html").read_text()
-m = re.search(r'<script type="application/ld\+json">(.*?)</script>', html, re.S)
-data = json.loads(m.group(1))
+blocks = re.findall(r'<script type="application/ld\+json">(.*?)</script>', html, re.S)
+assert len(blocks) == 1, f"expected exactly 1 ld+json block, found {len(blocks)}"
+data = json.loads(blocks[0])
+assert data["@type"] == "FAQPage"
 print("entities:", len(data["mainEntity"]))
 PY
 ```
-Expected: no exception; `entities: 7`.
+Expected: no exception; `entities: 7` (the `len(blocks) == 1` assertion catches the "accidentally nested / duplicated `<script>` tags" failure mode).
+
+- [ ] **Step 2b: Verify each JSON-LD answer matches its visible accordion answer verbatim**
+
+Run:
+```bash
+python3 - <<'PY'
+import re, json, pathlib, html as ht
+src = pathlib.Path("index.html").read_text()
+ld = json.loads(re.search(r'<script type="application/ld\+json">(.*?)</script>', src, re.S).group(1))
+# visible answers: the <p class="px-6 pb-4 ...">...</p> blocks inside #faq-list
+vis_html = re.search(r'id="faq-list"(.*?)<!-- FAQPage JSON-LD', src, re.S).group(1)
+vis = re.findall(r'<p class="px-6 pb-4[^"]*">(.*?)</p>', vis_html, re.S)
+def norm(s):
+    s = re.sub(r'<a [^>]*>(.*?)</a>', r'\1', s)   # strip the Privacy Policy link, keep its text
+    s = re.sub(r'\s+', ' ', s).strip()
+    return ht.unescape(s)
+vis = [norm(v) for v in vis]
+ldans = [norm(q["acceptedAnswer"]["text"]) for q in ld["mainEntity"]]
+assert len(vis) == 7, f"expected 7 visible answers, got {len(vis)}"
+for i,(a,b) in enumerate(zip(vis, ldans)):
+    assert a == b, f"MISMATCH #{i+1}\n visible: {a!r}\n json-ld: {b!r}"
+print("all 7 visible answers match JSON-LD verbatim")
+PY
+```
+Expected: `all 7 visible answers match JSON-LD verbatim`. If it reports a MISMATCH, make the JSON-LD `text` exactly equal the visible answer (normalized) — the visible accordion is the source of truth; do not edit the visible answers here.
 
 - [ ] **Step 3: Commit**
 
