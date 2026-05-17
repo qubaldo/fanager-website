@@ -50,17 +50,22 @@
     </header>
 
     <main>
-        <section class="min-h-screen flex items-center justify-center pt-20 pb-16 px-6 bg-gradient-to-b from-navy to-[#112240]">
-            <div class="max-w-6xl mx-auto flex flex-col lg:flex-row items-center gap-12 lg:gap-16">
-                <div class="text-center lg:text-left flex-1 animate-fade-up">
-                    <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight mb-6">Your League,<br>Your Way</h1>
-                    <p class="text-lg text-slate-400 max-w-lg mx-auto lg:mx-0 mb-8">The easiest way to run a rec league. The best way to follow one. No spreadsheets required.</p>
-                    <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-                        <span class="text-gray-500 italic text-sm">Coming soon to the App Store and Google Play</span>
+        <section class="min-h-screen flex items-center pt-24 pb-16 px-6 bg-gradient-to-b from-navy to-[#112240] overflow-hidden">
+            <div class="max-w-6xl mx-auto grid lg:grid-cols-2 gap-12 lg:gap-8 items-center w-full">
+                <div class="animate-fade-up">
+                    <span class="inline-block bg-cyan/10 border border-cyan/20 text-cyan text-xs font-semibold px-3 py-1 rounded-full mb-6">Now on the App Store</span>
+                    <h1 class="text-5xl sm:text-6xl lg:text-7xl font-bold leading-[1.05] tracking-tight mb-6">Run the whole<br>season from<br><span class="text-cyan">one app.</span></h1>
+                    <p class="text-lg text-slate-400 max-w-md mb-8">The easiest way to run a rec soccer league — and the best way to follow one. Schedules, fees, live scores, lineups, and predictions. No spreadsheets.</p>
+                    <div class="flex flex-col sm:flex-row sm:items-center gap-4">
+                        <a href="https://apps.apple.com/app/id6759442301" aria-label="Download Fanager on the App Store">
+                            <img src="/images/badges/app-store-badge.svg" alt="Download on the App Store" class="h-12 w-auto">
+                        </a>
+                        <span class="text-gray-500 italic text-sm">Google Play coming soon</span>
                     </div>
                 </div>
-                <div class="flex-1 flex justify-center animate-slide-up">
-                    <img src="/images/hero-featured.png" alt="Fanager app featuring leagues with isometric stadium backgrounds" class="w-80 rounded-[2rem] shadow-2xl shadow-blue-500/10">
+                <div class="flex justify-center lg:justify-end animate-slide-up relative">
+                    <div class="absolute w-72 h-72 rounded-full bg-blue-500/20 blur-3xl -z-0"></div>
+                    <img src="/images/screens/screen-my-leagues.png" alt="Fanager My Leagues screen showing followed leagues with live match cards" class="relative w-72 rounded-[2.5rem] border border-border-dark shadow-2xl shadow-blue-500/20">
                 </div>
             </div>
         </section>
