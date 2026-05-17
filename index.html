@@ -179,9 +179,10 @@
 
         <!-- Sticky Role Tab Switcher -->
         <div class="sticky top-[64px] z-40 bg-navy/90 backdrop-blur-md border-b border-border-dark py-3 px-6">
-            <div class="max-w-4xl mx-auto flex justify-center gap-2">
+            <div class="max-w-4xl mx-auto flex flex-wrap justify-center gap-2">
                 <button class="role-tab px-5 py-2 rounded-full text-sm font-semibold bg-blue-500 text-white transition-colors" data-target="league-owners" data-color="bg-blue-500">League Owners</button>
                 <button class="role-tab px-5 py-2 rounded-full text-sm font-semibold bg-gray-700 text-gray-400 transition-colors" data-target="team-managers" data-color="bg-green-500">Team Managers</button>
+                <button class="role-tab px-5 py-2 rounded-full text-sm font-semibold bg-gray-700 text-gray-400 transition-colors" data-target="players" data-color="bg-cyan">Players</button>
                 <button class="role-tab px-5 py-2 rounded-full text-sm font-semibold bg-gray-700 text-gray-400 transition-colors" data-target="fans" data-color="bg-amber-500">Fans</button>
             </div>
         </div>
@@ -502,7 +503,7 @@
         // Role tab switcher
         const tabs = document.querySelectorAll('.role-tab');
         const sections = document.querySelectorAll('.role-section');
-        const allColors = ['bg-blue-500', 'bg-green-500', 'bg-amber-500'];
+        const allColors = ['bg-blue-500', 'bg-green-500', 'bg-cyan', 'bg-amber-500'];
 
         function setActiveTab(id) {
             tabs.forEach(tab => {
