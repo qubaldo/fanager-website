@@ -340,11 +340,32 @@
       var code = pathMatch ? pathMatch[1] : null;
       var fullUrl = window.location.origin + path;
 
-      var appOpenUrl = 'leaguehq://open?path=' + encodeURIComponent(path);
       var iosStoreUrl = 'https://apps.apple.com/app/fanager/id6759442301';
       var androidStoreUrl =
         'https://play.google.com/store/apps/details?id=com.leaguemgr.league_mgr_app&referrer=' +
         encodeURIComponent('path=' + path);
+
+      // App-open URL is platform-specific.
+      //
+      // iOS: leaguehq:// is registered in the app's Info.plist with host=open
+      //      so deep_link_handler routes /c/<code> to JoinTeamPage.
+      //
+      // Android: the leaguehq:// scheme is NOT registered for host=open in
+      //      AndroidManifest.xml (only leaguehq://login-callback is). So a
+      //      tap on a leaguehq:// URL does nothing on Android. Instead use
+      //      a Chrome-recognized intent:// URL that targets the app by
+      //      package name and carries the original https://fanager.app/c/...
+      //      URI. If the app isn't installed, Chrome falls back to the
+      //      Play Store via S.browser_fallback_url. This works even when
+      //      App Link verification has failed (cert mismatch, user picked
+      //      "open in browser", etc.) — none of which the website can fix.
+      var iosAppUrl = 'leaguehq://open?path=' + encodeURIComponent(path);
+      var androidAppUrl =
+        'intent://fanager.app' + path +
+        '#Intent;scheme=https;package=com.leaguemgr.league_mgr_app' +
+        ';S.browser_fallback_url=' + encodeURIComponent(androidStoreUrl) +
+        ';end';
+      var appOpenUrl = /Android/i.test(navigator.userAgent || '') ? androidAppUrl : iosAppUrl;
       var fallbackDelayMs = 1200;
 
       var loadingState = document.getElementById('loading-state');
