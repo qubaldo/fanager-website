@@ -5,6 +5,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Join Team — Fanager</title>
   <meta name="robots" content="noindex, nofollow" />
+  <!-- iOS smart banner: shows an "OPEN" affordance in mobile Safari when the
+       app is installed. Belt-and-braces with the Universal Link config in
+       /.well-known/apple-app-site-association (paths includes /c/*). Set at
+       page level so app-argument carries the full URL into the app. -->
+  <meta id="smart-app-banner" name="apple-itunes-app" content="app-id=6759442301">
 
   <style>
     :root {
@@ -184,6 +189,57 @@
       opacity: 0.74;
     }
 
+    .team-logo-override {
+      width: 100%;
+      height: 100%;
+      border-radius: 16px;
+      object-fit: cover;
+    }
+
+    .copy-link-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      min-width: 200px;
+      margin-top: 12px;
+      border: 1px solid rgba(148, 163, 184, 0.35);
+      border-radius: 999px;
+      padding: 12px 22px;
+      background: transparent;
+      color: var(--text);
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      font-family: inherit;
+    }
+
+    .copy-link-btn:hover {
+      background: rgba(148, 163, 184, 0.08);
+    }
+
+    .copy-link-btn--copied {
+      border-color: #22c55e;
+      color: #22c55e;
+    }
+
+    .in-app-browser-warning {
+      margin: 20px auto 0;
+      padding: 14px 16px;
+      max-width: 360px;
+      border-radius: 14px;
+      background: rgba(245, 158, 11, 0.12);
+      border: 1px solid rgba(245, 158, 11, 0.32);
+      color: #fcd34d;
+      font-size: 13px;
+      line-height: 1.5;
+      text-align: left;
+    }
+
+    .in-app-browser-warning strong {
+      color: #fde68a;
+    }
+
     [hidden] {
       display: none !important;
     }
@@ -228,10 +284,10 @@
 
     <main class="landing" id="landing-shell" hidden>
       <div class="logo" aria-hidden="true">
-        <img src="/images/branding/fanager-mark-white.png" alt="">
+        <img id="brand-logo" src="/images/branding/fanager-mark-white.png" alt="">
       </div>
-      <h1>You've been invited!</h1>
-      <p class="subtitle">Open the Fanager app to join the team and see practice schedules, match times, and more.</p>
+      <h1 id="invite-title">You've been invited!</h1>
+      <p class="subtitle" id="invite-subtitle">Open the Fanager app to join the team and see practice schedules, match times, and more.</p>
       <p class="helper-copy">If the app did not open automatically, download Fanager or try opening it again.</p>
 
       <a id="open-app" class="open-app-btn" href="#" hidden>Open in App</a>
@@ -244,12 +300,46 @@
           <img src="/images/badges/google-play-badge.png" alt="Get it on Google Play">
         </a>
       </div>
+
+      <button id="copy-link-btn" class="copy-link-btn" type="button" hidden>
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
+        <span id="copy-link-label">Copy invite link</span>
+      </button>
+
+      <div id="in-app-warning" class="in-app-browser-warning" hidden>
+        <strong>Universal Links don't open from in-app browsers.</strong>
+        Tap the menu (•••) and choose <strong>Open in Safari</strong> or <strong>Open in Chrome</strong>, or copy the link above.
+      </div>
+    </main>
+
+    <main class="landing" id="invalid-shell" hidden>
+      <div class="logo" aria-hidden="true">
+        <img src="/images/branding/fanager-mark-white.png" alt="">
+      </div>
+      <h1>Invite no longer valid</h1>
+      <p class="subtitle">This invite link has expired or doesn't exist. Ask the team manager to share a fresh invite.</p>
+
+      <div class="store-buttons">
+        <a id="ios-store-invalid" class="store-badge" href="https://apps.apple.com/app/fanager/id6759442301">
+          <img src="/images/badges/app-store-badge.svg" alt="Download on the App Store">
+        </a>
+        <a id="android-store-invalid" class="store-badge" href="https://play.google.com/store/apps/details?id=com.leaguemgr.league_mgr_app">
+          <img src="/images/badges/google-play-badge.png" alt="Get it on Google Play">
+        </a>
+      </div>
     </main>
   </div>
 
   <script>
+    // Prod API origin (same as verify-email.html / reset-password.html).
+    var API_URL = 'https://league-hq-api-802921464084.us-west1.run.app/league-manager';
+
     window.addEventListener('DOMContentLoaded', function() {
       var path = window.location.pathname; // e.g. /c/abc123
+      var pathMatch = path.match(/^\/c\/([^\/?#]+)/);
+      var code = pathMatch ? pathMatch[1] : null;
+      var fullUrl = window.location.origin + path;
+
       var appOpenUrl = 'leaguehq://open?path=' + encodeURIComponent(path);
       var iosStoreUrl = 'https://apps.apple.com/app/fanager/id6759442301';
       var androidStoreUrl =
@@ -259,14 +349,27 @@
 
       var loadingState = document.getElementById('loading-state');
       var landingShell = document.getElementById('landing-shell');
+      var invalidShell = document.getElementById('invalid-shell');
       var openAppButton = document.getElementById('open-app');
       var iosStoreButton = document.getElementById('ios-store');
       var androidStoreButton = document.getElementById('android-store');
+      var inviteTitle = document.getElementById('invite-title');
+      var inviteSubtitle = document.getElementById('invite-subtitle');
+      var brandLogo = document.getElementById('brand-logo');
+      var copyLinkButton = document.getElementById('copy-link-btn');
+      var copyLinkLabel = document.getElementById('copy-link-label');
+      var inAppWarning = document.getElementById('in-app-warning');
+      var smartBanner = document.getElementById('smart-app-banner');
 
       var ua = navigator.userAgent || '';
       var isIOS = /iPhone|iPad|iPod/i.test(ua);
       var isAndroid = /Android/i.test(ua);
       var isMobile = isIOS || isAndroid;
+      // In-app browsers (Instagram, FB, FB Messenger, Snapchat, Twitter/X,
+      // LinkedIn, Line, TikTok). These never fire Universal Links / App
+      // Links — the user must explicitly open the URL in Safari / Chrome.
+      var isInAppBrowser = /FBAN|FBAV|FB_IAB|Instagram|Snapchat|TwitterAndroid|Twitter for iPhone|LinkedInApp|Line\//i.test(ua);
+
       var didBackground = false;
       var didRevealFallback = false;
       var attemptStartedAt = Date.now();
@@ -274,6 +377,12 @@
       openAppButton.href = appOpenUrl;
       iosStoreButton.href = iosStoreUrl;
       androidStoreButton.href = androidStoreUrl;
+
+      // Wire the iOS smart banner with the deep-link argument so a Safari
+      // user can tap "OPEN" → app receives the same URL via Universal Link.
+      if (smartBanner) {
+        smartBanner.setAttribute('content', 'app-id=6759442301, app-argument=' + fullUrl);
+      }
 
       function setBadgePriority() {
         iosStoreButton.classList.remove('store-badge--primary', 'store-badge--secondary');
@@ -291,6 +400,53 @@
         }
       }
 
+      function showInvalidState() {
+        loadingState.hidden = true;
+        landingShell.hidden = true;
+        invalidShell.hidden = false;
+      }
+
+      function applyPreview(preview) {
+        if (preview && preview.teamName) {
+          inviteTitle.textContent = "You've been invited to " + preview.teamName;
+          if (preview.leagueName) {
+            inviteSubtitle.textContent = 'Join in ' + preview.leagueName + ' to see practices, match times, and team updates.';
+          } else {
+            inviteSubtitle.textContent = 'Open Fanager to join the team and see practices, match times, and updates.';
+          }
+        }
+        if (preview && preview.teamLogo) {
+          // Swap the gradient mark for the team's logo image.
+          brandLogo.src = preview.teamLogo;
+          brandLogo.alt = preview.teamName || '';
+          brandLogo.classList.add('team-logo-override');
+        }
+      }
+
+      function fetchPreview() {
+        if (!code) {
+          return Promise.resolve(null);
+        }
+        return fetch(API_URL + '/teams/join/' + encodeURIComponent(code) + '/preview', {
+          method: 'GET',
+          headers: { 'Accept': 'application/json' },
+          credentials: 'omit'
+        }).then(function(resp) {
+          if (resp.status === 404) {
+            return { __invalid: true };
+          }
+          if (!resp.ok) {
+            // Soft-fail on 5xx — keep the generic "You've been invited"
+            // landing rather than turning a backend hiccup into a dead end.
+            return null;
+          }
+          return resp.json();
+        }).catch(function() {
+          // Network / CORS error → soft-fail.
+          return null;
+        });
+      }
+
       function revealFallback() {
         if (didRevealFallback) {
           return;
@@ -303,6 +459,10 @@
         if (isMobile) {
           openAppButton.hidden = false;
         }
+        if (isInAppBrowser) {
+          inAppWarning.hidden = false;
+          copyLinkButton.hidden = false;
+        }
       }
 
       function revealFallbackAfterReturn() {
@@ -314,6 +474,29 @@
           revealFallback();
         }
       }
+
+      copyLinkButton.addEventListener('click', function() {
+        if (!navigator.clipboard || !navigator.clipboard.writeText) {
+          // Older in-app browsers (Snapchat especially) lack the Clipboard
+          // API; fall back to a hidden textarea.
+          var ta = document.createElement('textarea');
+          ta.value = fullUrl;
+          ta.style.position = 'fixed';
+          ta.style.opacity = '0';
+          document.body.appendChild(ta);
+          ta.select();
+          try { document.execCommand('copy'); } catch (e) { /* swallow */ }
+          document.body.removeChild(ta);
+        } else {
+          navigator.clipboard.writeText(fullUrl);
+        }
+        copyLinkButton.classList.add('copy-link-btn--copied');
+        copyLinkLabel.textContent = 'Link copied';
+        window.setTimeout(function() {
+          copyLinkButton.classList.remove('copy-link-btn--copied');
+          copyLinkLabel.textContent = 'Copy invite link';
+        }, 2200);
+      });
 
       document.addEventListener('visibilitychange', function() {
         if (document.visibilityState === 'hidden') {
@@ -331,6 +514,26 @@
       window.addEventListener('focus', revealFallbackAfterReturn);
 
       setBadgePriority();
+
+      // Kick off the preview fetch immediately, in parallel with the
+      // app-open attempt. If the preview resolves to "invalid" we replace
+      // the page state regardless of whether the app opened.
+      var previewPromise = fetchPreview();
+      previewPromise.then(function(data) {
+        if (data && data.__invalid) {
+          showInvalidState();
+          return;
+        }
+        applyPreview(data);
+      });
+
+      if (isInAppBrowser) {
+        // Universal Links never fire from in-app browsers. Skip the
+        // app-open attempt entirely so the user immediately sees the
+        // "open in Safari/Chrome" guidance + copy button.
+        revealFallback();
+        return;
+      }
 
       if (!isMobile) {
         revealFallback();
