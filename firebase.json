@@ -7,7 +7,9 @@
       ".nojekyll",
       ".gitignore",
       ".git/**",
-      "**/node_modules/**"
+      "**/node_modules/**",
+      "docs/_todo.md",
+      "docs/_template.html"
     ],
     "headers": [
       {
@@ -53,6 +55,7 @@
       { "source": "/s/**", "destination": "/share.html" },
       { "source": "/tr/**", "destination": "/share.html" },
       { "source": "/m/**", "destination": "/share.html" },
+      { "source": "/lu/**", "destination": "/share.html" },
       { "source": "/c/**", "destination": "/join-community.html" },
       { "source": "/claim/**", "destination": "/claim.html" }
     ]
