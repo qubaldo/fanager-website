@@ -57,7 +57,9 @@
       { "source": "/m/**", "destination": "/share.html" },
       { "source": "/lu/**", "destination": "/share.html" },
       { "source": "/c/**", "destination": "/join-community.html" },
-      { "source": "/claim/**", "destination": "/claim.html" }
+      { "source": "/claim/**", "destination": "/claim.html" },
+      { "source": "/get", "destination": "/get.html" },
+      { "source": "/get/**", "destination": "/get.html" }
     ]
   }
 }
