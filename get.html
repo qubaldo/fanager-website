@@ -45,11 +45,10 @@
       // URLs discard query params; Apple ct/pt campaigns are out of scope).
       var templateMap = {
         lp: 'league_promo',
-        sa: 'season_announcement',
-        gd: 'game_day',
         fs: 'final_score',
         ss: 'game_week',
-        st: 'standings'
+        st: 'standings',
+        sw: 'season_schedule'
       };
       var code = new URLSearchParams(window.location.search).get('c');
       // hasOwnProperty guard: bare templateMap[code] would hit the
