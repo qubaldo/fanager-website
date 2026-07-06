@@ -9,7 +9,13 @@
       ".git/**",
       "**/node_modules/**",
       "docs/_todo.md",
-      "docs/_template.html"
+      "docs/_template.html",
+      "docs/_overnight-run.md",
+      "CLAUDE.md",
+      "AGENTS.md",
+      ".claude/**",
+      ".firebase/**",
+      ".gitnexus/**"
     ],
     "headers": [
       {
@@ -56,6 +62,7 @@
       { "source": "/tr/**", "destination": "/share.html" },
       { "source": "/m/**", "destination": "/share.html" },
       { "source": "/lu/**", "destination": "/share.html" },
+      { "source": "/i/**", "destination": "/share.html" },
       { "source": "/c/**", "destination": "/join-community.html" },
       { "source": "/claim/**", "destination": "/claim.html" },
       { "source": "/get", "destination": "/get.html" },
